@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-09-21T10:05:57 ICT" name="Suite1" finished-at="2022-09-21T10:06:09 ICT" duration-ms="11728">
+    <groups>
+    </groups>
+    <test started-at="2022-09-21T10:05:57 ICT" name="Test1" finished-at="2022-09-21T10:06:09 ICT" duration-ms="11728">
+      <class name="Test.TestNG">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:Test.TestNG@4cbf4f53]" started-at="2022-09-21T10:06:01 ICT" name="setUpTest" finished-at="2022-09-21T10:06:02 ICT" duration-ms="837" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="firstTest()[pri:0, instance:Test.TestNG@4cbf4f53]" started-at="2022-09-21T10:06:02 ICT" name="firstTest" finished-at="2022-09-21T10:06:04 ICT" duration-ms="1957" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstTest -->
+        <test-method signature="secondTest()[pri:0, instance:Test.TestNG@4cbf4f53]" started-at="2022-09-21T10:06:04 ICT" name="secondTest" finished-at="2022-09-21T10:06:04 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- secondTest -->
+        <test-method signature="thirdTest()[pri:0, instance:Test.TestNG@4cbf4f53]" started-at="2022-09-21T10:06:04 ICT" name="thirdTest" finished-at="2022-09-21T10:06:04 ICT" duration-ms="104" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- thirdTest -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:Test.TestNG@4cbf4f53]" started-at="2022-09-21T10:06:06 ICT" name="tearDownTest" finished-at="2022-09-21T10:06:09 ICT" duration-ms="2454" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- Test.TestNG -->
+      <class name="Test.FirstTest_2">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:Test.FirstTest_2@67e28be3]" started-at="2022-09-21T10:05:57 ICT" name="setUpTest" finished-at="2022-09-21T10:06:01 ICT" duration-ms="3707" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="firstTest()[pri:0, instance:Test.FirstTest_2@67e28be3]" started-at="2022-09-21T10:06:02 ICT" name="firstTest" finished-at="2022-09-21T10:06:04 ICT" duration-ms="1990" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstTest -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:Test.FirstTest_2@67e28be3]" started-at="2022-09-21T10:06:04 ICT" name="tearDownTest" finished-at="2022-09-21T10:06:06 ICT" duration-ms="2423" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- Test.FirstTest_2 -->
+    </test> <!-- Test1 -->
+  </suite> <!-- Suite1 -->
+</testng-results>

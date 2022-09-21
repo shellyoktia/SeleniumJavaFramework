@@ -1,7 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Fri Sep 16 12:13:48 ICT 2022","Fri Sep 16 12:13:48 ICT 2022","57","Default suite","Default test","Test.TestNG","Test.TestNG","third","third",""
-"passed","Tue Sep 20 15:38:19 ICT 2022","Tue Sep 20 15:38:22 ICT 2022","2613","Suite1","Test1","Test.FirstTest_2","Test.FirstTest_2","firstTest","firstTest",""
-"failed","Fri Sep 16 11:49:12 ICT 2022","Fri Sep 16 11:49:12 ICT 2022","1","Default suite","Default test","Test.TestNG","Test.TestNG","tearDownTest","tearDownTest",""
-"failed","Tue Sep 20 15:38:22 ICT 2022","Tue Sep 20 15:38:22 ICT 2022","66","Suite1","Test1","Test.TestNG","Test.TestNG","secondTest","secondTest",""
-"passed","Tue Sep 20 15:38:22 ICT 2022","Tue Sep 20 15:38:22 ICT 2022","240","Suite1","Test1","Test.TestNG","Test.TestNG","thirdTest","thirdTest",""
-"passed","Tue Sep 20 15:38:19 ICT 2022","Tue Sep 20 15:38:21 ICT 2022","2521","Suite1","Test1","Test.TestNG","Test.TestNG","firstTest","firstTest",""
