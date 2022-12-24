@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite parallel="classes" name="Suite1">
-  <test thread-count="5" parallel="classes" name="Test1">
+<suite name="Suite1">
+  <test thread-count="5" name="Test1">
     <classes>
-      <class name="Test.FirstTest_2"/><class name="Test.TestNG"></class>
+      <class name="sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2"/><class name="release_sales_order.ReleaseSalesOrderBoxPartisi"></class>
     </classes>
   </test> <!-- Test1 -->
 </suite> <!-- Suite1 -->

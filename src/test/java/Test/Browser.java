@@ -22,8 +22,8 @@ public class Browser {
 		WebDriver driver = new ChromeDriver();
 		
 		//ke url
-		driver.get("http://google.com");
-		//driver.navigate().to("http://localhost:3001/");
+		//driver.get("http://google.com");
+		driver.navigate().to("http://localhost:3001/");
 		
 		//maximize window
 		driver.manage().window().maximize();

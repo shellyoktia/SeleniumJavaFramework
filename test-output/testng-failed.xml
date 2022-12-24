@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Test.TestNG">
+      <class name="sales_order.VerifyValueOfPPH23inAddSalesOrderModule">
         <methods>
           <include name="tearDownTest"/>
-          <include name="secondTest"/>
           <include name="setUpTest"/>
+          <include name="firstTest"/>
         </methods>
-      </class> <!-- Test.TestNG -->
+      </class> <!-- sales_order.VerifyValueOfPPH23inAddSalesOrderModule -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
