@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="sales_order.VerifyValueOfPPH23inAddSalesOrderModule">
+      <class name="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2">
         <methods>
-          <include name="tearDownTest"/>
+          <include name="calculate_beratTrim_box"/>
+          <include name="calculate_beratBox_box"/>
           <include name="setUpTest"/>
-          <include name="firstTest"/>
+          <include name="tearDownTest"/>
         </methods>
-      </class> <!-- sales_order.VerifyValueOfPPH23inAddSalesOrderModule -->
+      </class> <!-- work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

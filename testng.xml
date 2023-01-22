@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite1">
-  <test thread-count="5" name="Test1">
+<suite name="Suite1" thread-count="1" verbose="1">
+  <test  name="Test1">
     <classes>
-      <class name="sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2"/><class name="release_sales_order.ReleaseSalesOrderBoxPartisi"></class>
+      <class name="sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2"/>
     </classes>
   </test> <!-- Test1 -->
+  <test  name="Test2">
+    <classes>
+      <class name="release_sales_order.ReleaseSalesOrderBoxPartisi"/>
+    </classes>
+  </test> <!-- Test2 -->
+  <test  name="Test3">
+    <classes>
+      <class name="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2"/>
+    </classes>
+  </test> <!-- Test3 -->
+  <test  name="Test4">
+    <classes>
+      <class name="perpindahan_wip.PerpindahanWIPBoxPartisi"/>
+    </classes>
+  </test> <!-- Test4 -->
+  <test  name="Test5">
+    <classes>
+      <class name="quality_check.QCBeratTimbangBoxPartisi"/>
+    </classes>
+  </test> <!-- Test5 -->
+  <test  name="Test6">
+    <classes>
+      <class name="input_hasil_produksi.InputHasilProduksiBoxPartisi"/>
+    </classes>
+  </test> <!-- Test6 -->
 </suite> <!-- Suite1 -->

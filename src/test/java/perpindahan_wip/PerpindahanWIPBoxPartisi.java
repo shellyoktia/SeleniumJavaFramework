@@ -15,7 +15,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import pages.Home;
+import pages.PerpindahanWIPPage;
+import pages.ItemMastercard;
+import pages.RawMaterial;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
 import pages.VariableGlobalMain;
@@ -23,14 +26,24 @@ import pages.VariableGlobalMain;
 public class PerpindahanWIPBoxPartisi {
 
 	private static WebDriver driver = null;
-	//String noSPKset = VariableGlobalMain.noSpkSetBoxPartisi;
-	String noSPKset = "22020051";
+	String noSPKSet;
+	//String noSPKSet = "23001305";
+	Home objHome;
+	PerpindahanWIPPage objPerpindahanWIPPage;
+	ItemMastercard objItemMastercard;
+	RawMaterial objRawMaterial;
+	WebDriverWait wait;
 			
 	@BeforeTest
 	public void setUpTest() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		
+		objHome = new Home(driver);
+		objPerpindahanWIPPage = new PerpindahanWIPPage(driver);
+		objItemMastercard = new ItemMastercard(driver);
+		objRawMaterial = new RawMaterial(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		noSPKSet = VariableGlobalMain.noSpkSetBoxPartisi;
 		
 		//ke url
 		LoginPage.url_localhost(driver);
@@ -49,33 +62,33 @@ public class PerpindahanWIPBoxPartisi {
 		Actions action = new Actions(driver);
 	    //ke halaman perpindahan wip
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'SPK Rework Request Approval')]")));
-		driver.findElement(By.id("rootmenu-production")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.linkText("Perpindahan WIP")).click();
-		driver.findElement(By.name("add")).click();
-		driver.findElement(By.cssSelector(".ant-calendar-picker-input")).click();
-	    driver.findElement(By.cssSelector(".ant-calendar-today > .ant-calendar-date")).click();
-	    WebElement searchwo = driver.findElement(By.className("goodsissue-searchwo"));
-	    action.moveToElement(searchwo).click().sendKeys(noSPKset).build().perform();
-	    Thread.sleep(10000);
-	    driver.findElement(By.xpath("//li[contains(text(),'"+ noSPKset +"')]")).click();
-		driver.findElement(By.name("next-btn")).click();
-		driver.findElement(By.cssSelector(".goodsissue-nospk .ant-select-selection__rendered")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//li[contains(text(),'BOX - BOX USG 250CC (K0173)')]")).click();
-		driver.findElement(By.xpath("//li[contains(text(),'PARTISI - BOX USG 250CC (K0173)')]")).click();
-		driver.findElement(By.cssSelector(".goodsissue-item .ant-select-selection__placeholder")).click();
-		driver.findElement(By.xpath("//li[contains(text(),'8 - M150 - A - PA69 - MPKA')]")).click();
-		driver.findElement(By.cssSelector(".ant-table-row:nth-child(1) .ant-checkbox-input")).click();
-	    driver.findElement(By.cssSelector(".goodsissue-bagisisa")).click();
-	    driver.findElement(By.className("goodsissue-assign")).click();
-	    Thread.sleep(100);
-	    driver.findElement(By.cssSelector(".data-form__actions-row:nth-child(16) > .ant-btn")).click();
-	    driver.findElement(By.cssSelector(".ant-btn:nth-child(2)")).click();
-	    wait.until(ExpectedConditions.elementToBeClickable(By.name("add")));
 		
+		objHome.waitCardToBeClickable();
+		objHome.click_rootmenuProduction();
+		Thread.sleep(1000);
+		
+		
+		objPerpindahanWIPPage.click_menuPerpindahanWIP();
+		objPerpindahanWIPPage.click_addPerpindahanWIP();
+		objPerpindahanWIPPage.click_calendar();
+		objPerpindahanWIPPage.click_tanggalHariIni();
+		
+	    objPerpindahanWIPPage.input_noSPKSet(noSPKSet);
+	    objPerpindahanWIPPage.click_next();
+	    objPerpindahanWIPPage.click_noSPKItem();
+	    Thread.sleep(3000);
+	    objItemMastercard.clickItemMastercard_PTJayamasMedica_box();
+	    objItemMastercard.clickItemMastercard_PTJayamasMedica_partisi();
+	    objPerpindahanWIPPage.click_rawMaterial();
+	    objRawMaterial.clickrawMaterial_8_M150();
+	    objPerpindahanWIPPage.click_stockBalance_rawMaterial();
+	    objPerpindahanWIPPage.click_bagiSisaBalance();
+		objPerpindahanWIPPage.click_assign();
+	    Thread.sleep(100);
+	    objPerpindahanWIPPage.click_submit();
+	    objPerpindahanWIPPage.click_yesSubmit();
+	    wait.until(ExpectedConditions.elementToBeClickable(By.name("add")));
+
 	}
 	
 	@AfterTest

@@ -3,6 +3,8 @@ package work_order_spk;
 import static org.testng.Assert.assertEquals;
 
 import java.lang.reflect.Array;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,24 +22,40 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
 import pages.VariableGlobalMain;
+import pages.Home;
+import pages.ReleaseSalesOrderPage;
+import pages.WorkOrderPage;
 
 public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 
 	private static WebDriver driver = null;
 	private static String isiTable, outkrts, corr, beratbox, beratorder, berattrim, BeratSubstance1, BeratSubstance2, BeratSubstance3, BeratSubstance4, BeratSubstance5;
 	private static ArrayList<String> allValues = new ArrayList<String>();
-	//String noSalesOrder = VariableGlobalMain.noSalesOrderBoxPartisi;
-	String noSalesOrder = "qwertfghjyyi";
-	//String qtySalesOrder = VariableGlobalMain.qtySalesOrderBoxPartisi;
-	String qtySalesOrder = "150";
-	float qty = Float.parseFloat(qtySalesOrder);
-	float lebarKertasMinimum_box, width_box, outkertas_box,constantDoubleJoint_box,out_box,outKnife_box, corrBox,weightSheetNettoGram_box,weight_box, beratBoxBox;
-	float lebarKertasMinimum_partisi, width_partisi, outkertas_partisi, constantDoubleJoint_partisi, out_partisi, outKnife_partisi,corrPartisi, weightSheetNettoGram_partisi,weight_partisi, beratBoxPartisi;
-
+	
+	String noSalesOrder;
+	//String noSalesOrder = "2023 34";
+	String qtySalesOrder;
+	//String qtySalesOrder = "150";
+	int qty;
+	float lebarKertasMinimum_box, width_box,weightSheetNettoGram_box,weight_box, beratBoxBox;
+	int outkertas_box, constantDoubleJoint_box,out_box,outKnife_box,corrBox;
+	float lebarKertasMinimum_partisi, width_partisi, weightSheetNettoGram_partisi,weight_partisi, beratBoxPartisi;
+	int outkertas_partisi, constantDoubleJoint_partisi, out_partisi, outKnife_partisi,corrPartisi;
+	Home objHome;
+	ReleaseSalesOrderPage objReleaseSalesOrderPage;
+	WorkOrderPage objWorkOrderPage;
+	
+	
 	@BeforeTest
 	public void setUpTest() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		objHome = new Home(driver);
+		objReleaseSalesOrderPage = new ReleaseSalesOrderPage(driver);
+		objWorkOrderPage = new WorkOrderPage(driver);
+		noSalesOrder = VariableGlobalMain.noSalesOrderBoxPartisi;
+		qtySalesOrder = VariableGlobalMain.qtySalesOrderBoxPartisi;
+		qty = Integer.parseInt(qtySalesOrder);
 		
 		//ke url
 		LoginPage.url_localhost(driver);
@@ -52,21 +70,21 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 		
 		//ke halaman release sales order buat ambil no spk
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'SPK Rework Request Approval')]")));
-		driver.findElement(By.id("rootmenu-sales")).click();
-		driver.findElement(By.linkText("Release Sales Order")).click();
+		objHome.waitCardToBeClickable();
+		objHome.click_rootmenuSales();
+		objReleaseSalesOrderPage.click_menuReleaseSalesOrder();
 				
 		//filter by no sales order
-		driver.findElement(By.className("filter-block__title")).click();
-		driver.findElement(By.name("noSalesorder")).sendKeys(noSalesOrder);
-		driver.findElement(By.name("submit")).click();
+		objReleaseSalesOrderPage.click_filter();
+		objReleaseSalesOrderPage.filter_byNoSalesOrder(noSalesOrder);
+		objReleaseSalesOrderPage.click_submitFilter();
 	}
 	
 	@Test (priority = 1)
-	 public static void firstTes() throws InterruptedException {
+	 public void firstTes() throws InterruptedException {
+				Thread.sleep(5000);
 				//ambil no spk per item
-				WebElement Table = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/main[1]/section[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]"));
+				WebElement Table = driver.findElement(By.xpath("//tbody[@class='ant-table-tbody']"));
 				List<WebElement> rows_table = Table.findElements(By.tagName("tr"));
 				int rows_count = rows_table.size();
 				ArrayList<String> noSPKperItem = new ArrayList<String>();
@@ -84,31 +102,33 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				    System.out.println(isiTable);
 				    noSPKperItem.add(isiTable);
 				}
-						
 				//filter by no spk set di halaman work order
 				int array_count = noSPKperItem.size();
-				for (int arr = 0; arr < array_count; arr++) {
+				System.out.print(array_count);
+				for (int arr = 1; arr < array_count; arr++) {
 				    String out = noSPKperItem.get(arr);
 				    
-				    driver.findElement(By.id("rootmenu-production")).click();
-					driver.findElement(By.linkText("Work Order (SPK)")).click();
-				    driver.findElement(By.className("filter-block__title")).click();
-				    driver.findElement(By.name("noWorkorder")).sendKeys(out);
-				    driver.findElement(By.name("submit")).click();
-				    driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span[1]/a[1]")).click();
+				    //ke halaman work order
+				    objHome.click_rootmenuProduction();
+				    objWorkOrderPage.click_menuReleaseSalesOrder();
+				    //filter
+				    objWorkOrderPage.click_filter();
+				    objWorkOrderPage.filter_byNoWorkOrder(out);
+				    objWorkOrderPage.click_submitFilter();
+				    objWorkOrderPage.click_viewWorkorder();
 				    
 				    Thread.sleep(7000);
-				    String noSPKset = driver.findElement(By.name("noWorkorderGrouped")).getAttribute("value");
-				    outkrts = driver.findElement(By.cssSelector(".wo_out input")).getAttribute("value");
-					corr = driver.findElement(By.cssSelector(".wo_corr input")).getAttribute("value");
-					beratbox = driver.findElement(By.cssSelector(".wo_weightperkg input")).getAttribute("value");
-					beratorder = driver.findElement(By.cssSelector(".wo_weight input")).getAttribute("value");
-					berattrim = driver.findElement(By.cssSelector(".wo_trimweight input")).getAttribute("value");
-					BeratSubstance1 = driver.findElement(By.cssSelector(".wo_gsmweight1 input")).getAttribute("value");
-					BeratSubstance2 = driver.findElement(By.cssSelector(".wo_gsmweight2 input")).getAttribute("value");
-					BeratSubstance3 = driver.findElement(By.cssSelector(".wo_gsmweight3 input")).getAttribute("value");
-					BeratSubstance4 = driver.findElement(By.cssSelector(".wo_gsmweight4 input")).getAttribute("value");
-					BeratSubstance5 = driver.findElement(By.cssSelector(".wo_gsmweight5 input")).getAttribute("value");
+				    String noSPKset = objWorkOrderPage.get_noSPKSet();
+				    outkrts = objWorkOrderPage.get_outKertas();
+					corr = objWorkOrderPage.get_corr();
+					beratbox = objWorkOrderPage.get_beratBox();
+					beratorder = objWorkOrderPage.get_beratOrder();
+					berattrim = objWorkOrderPage.get_beratTrim();
+					BeratSubstance1 = objWorkOrderPage.get_beratSubstance1();
+					BeratSubstance2 = objWorkOrderPage.get_beratSubstance2();
+					BeratSubstance3 = objWorkOrderPage.get_beratSubstance3();
+					BeratSubstance4 = objWorkOrderPage.get_beratSubstance4();
+					BeratSubstance5 = objWorkOrderPage.get_beratSubstance5();
 					System.out.println("no spk set " + noSPKset);
 					VariableGlobalMain.noSpkSetBoxPartisi = noSPKset;
 					System.out.println("out kertas " + outkrts);
@@ -121,7 +141,7 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 					System.out.println("berat substance 3 " + BeratSubstance3);
 					System.out.println("berat substance 4 " + BeratSubstance4);
 					System.out.println("berat substance 5 " + BeratSubstance5);
-				    driver.findElement(By.xpath("//button[@name='back-button']")).click();
+				    objWorkOrderPage.click_back();
 				    
 				    allValues.add(outkrts);
 				    allValues.add(corr);
@@ -144,12 +164,14 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				width_box = 366;
 
 				//int outkertas_box = Math.floor(lebarKertasMinimum_box / width_box)
-				//out dengan nilai lebarkertasminumim terbesar (dataase mcsheet)
+				//out dengan nilai lebarkertasminumim terbesar (database mcsheet)
 				outkertas_box = 4;
 
-				String expected_outkrts_box = Float.toString(outkertas_box);
-				String actual_outkrts_box = allValues.get(0);
+				int expected_outkrts_box = outkertas_box;
+				String outkrts_box = allValues.get(0);
+				int actual_outkrts_box = Integer.parseInt(outkrts_box);
 				assertEquals(actual_outkrts_box, expected_outkrts_box);
+				
 				System.out.println("actual_otkrts_box " + actual_outkrts_box);
 				System.out.println("expected_outkrts_box " + expected_outkrts_box);
 	}
@@ -159,10 +181,13 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				constantDoubleJoint_box = 1;
 				out_box = outkertas_box;
 				outKnife_box = 1;
-				corrBox = (float) (constantDoubleJoint_box * Math.floor((qty / out_box) / outKnife_box));
-				String expected_corr_box = Float.toString(corrBox);
-				String actual_corr_box = allValues.get(1);
+				
+				corrBox = (int) (constantDoubleJoint_box * Math.floor((qty / out_box) / outKnife_box));
+				int  expected_corr_box = corrBox;
+				String corr_box = allValues.get(1);
+				int actual_corr_box = Integer.parseInt(corr_box);
 				assertEquals(actual_corr_box, expected_corr_box);
+				
 				System.out.println("actual_corr_box " + actual_corr_box);
 				System.out.println("expected_corr_box " + expected_corr_box);
 	}
@@ -175,9 +200,12 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				
 				//calculate berat box box
 				beratBoxBox = (float) (Math.ceil(((weight_box / qty) * 1000) * 100) / 100);
-				String expected_beratbox_box = Float.toString(beratBoxBox);
-				String actual_beratbox_box = allValues.get(2);
+				
+				Float expected_beratbox_box = beratBoxBox;
+				String beratbox_box = allValues.get(2);
+				Float actual_beratbox_box = Float.parseFloat(beratbox_box); 
 				assertEquals(actual_beratbox_box, expected_beratbox_box);
+				
 				System.out.println("actual_beratbox_box " + actual_beratbox_box);
 				System.out.println("expected_beratbox_box " + expected_beratbox_box);
 	}
@@ -186,9 +214,12 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 	
 				//calculate berat order box
 				float beratOrderBox = (float) (Math.ceil(weight_box * 100) / 100);
-				String expected_beratorder_box = Float.toString(beratOrderBox);
-				String actual_beratorder_box = allValues.get(3);
+				
+				Float expected_beratorder_box = beratOrderBox;
+				String beratorder_box = allValues.get(3);
+				Float actual_beratorder_box = Float.parseFloat(beratorder_box);
 				assertEquals(actual_beratorder_box, expected_beratorder_box);
+				
 				System.out.println("actual_beratorder_box " + actual_beratorder_box);
 				System.out.println("expected_beratorder_box " + expected_beratorder_box);
 	}
@@ -197,9 +228,12 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				//calculate berat trim box
 				float trimWasteGram_box = 13.09f;
 				float beratTrimBox = ((qty / out_box) * trimWasteGram_box) / 1000;
-				String expected_berattrim_box = Float.toString(beratTrimBox);
-				String actual_berattrim_box = allValues.get(4);
+				
+				Float expected_berattrim_box = beratTrimBox;
+				String berattrim_box = allValues.get(4);
+				Float actual_berattrim_box = Float.parseFloat(berattrim_box);
 				assertEquals(actual_berattrim_box, expected_berattrim_box);
+				
 				System.out.println("actual_berattrim_box " + actual_berattrim_box);
 				System.out.println("expected_berattrim_box " + expected_berattrim_box);
 	}
@@ -211,8 +245,14 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float minLebarMmSheetBox1 = 1500;
 				float identifierBox1 = 1;
 				float beratSubstanceBox1 = ((((((qValuebox1 / 1000) * sheetLengthBox1) / 1000) * minLebarMmSheetBox1) / 1000) * identifierBox1) * corrBox;
-				String expected_beratsubstance1_box = String.format("%.2f", beratSubstanceBox1);
-				String actual_beratsubstance1_box = allValues.get(5);
+				
+				BigDecimal beratSubstanceBox_1 = new BigDecimal(beratSubstanceBox1);
+				beratSubstanceBox_1 = beratSubstanceBox_1.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance1_box = beratSubstanceBox_1.floatValue();
+				
+				String actual_beratsubstance1box = allValues.get(5);
+				Float actual_beratsubstance1_box =  Float.parseFloat(actual_beratsubstance1box);
+				
 				assertEquals(actual_beratsubstance1_box, expected_beratsubstance1_box);
 				System.out.println("actual_beratsubstance1_box " + actual_beratsubstance1_box);
 				System.out.println("expected_beratsubstance1_box " + expected_beratsubstance1_box);
@@ -226,8 +266,14 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float identifierBox2 = 1.33f;
 				float beratSubstanceBox2 = ((((((qValuebox2 / 1000) * sheetLengthBox2) / 1000) * minLebarMmSheetBox2) / 1000) * identifierBox2) * 
 				corrBox;
-				String expected_beratsubstance2_box = String.format("%.2f", beratSubstanceBox2);
-				String actual_beratsubstance2_box = allValues.get(6);
+				
+				BigDecimal beratSubstanceBox_2 = new BigDecimal(beratSubstanceBox2);
+				beratSubstanceBox_2 = beratSubstanceBox_2.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance2_box = beratSubstanceBox_2.floatValue();
+				
+				String actual_beratsubstance2box = allValues.get(6);
+				Float actual_beratsubstance2_box =  Float.parseFloat(actual_beratsubstance2box);
+				
 				assertEquals(actual_beratsubstance2_box, expected_beratsubstance2_box);
 				System.out.println("actual_beratsubstance2_box " + actual_beratsubstance2_box);
 				System.out.println("expected_beratsubstance2_box " + expected_beratsubstance2_box);
@@ -241,8 +287,14 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float identifierBox3 = 1;
 				float beratSubstanceBox3 = ((((((qValuebox3 / 1000) * sheetLengthBox3) / 1000) * minLebarMmSheetBox3) / 1000) * identifierBox3) * 
 				corrBox;
-				String expected_beratsubstance3_box = String.format("%.2f", beratSubstanceBox3);
-				String actual_beratsubstance3_box = allValues.get(7);
+				
+				BigDecimal beratSubstanceBox_3 = new BigDecimal(beratSubstanceBox3);
+				beratSubstanceBox_3 = beratSubstanceBox_3.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance3_box = beratSubstanceBox_3.floatValue();
+				
+				String actual_beratsubstance3box = allValues.get(7);
+				Float actual_beratsubstance3_box =  Float.parseFloat(actual_beratsubstance3box);
+				
 				assertEquals(actual_beratsubstance3_box, expected_beratsubstance3_box);
 				System.out.println("actual_beratsubstance3_box " + actual_beratsubstance3_box);
 				System.out.println("expected_beratsubstance3_box " + expected_beratsubstance3_box);
@@ -255,9 +307,17 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float minLebarMmSheetBox4 = 1500;
 				float identifierBox4 = 1.42f;
 				float beratSubstanceBox4 = ((((((qValuebox4 / 1000) * sheetLengthBox4) / 1000) * minLebarMmSheetBox4) / 1000) * identifierBox4) * corrBox;
-				String expected_beratsubstance4_box = String.format("%.2f", beratSubstanceBox4);
-				String actual_beratsubstance4_box = allValues.get(8);
+				
+				BigDecimal beratSubstanceBox_4 = new BigDecimal(beratSubstanceBox4);
+				beratSubstanceBox_4 = beratSubstanceBox_4.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance4_box = beratSubstanceBox_4.floatValue();
+				
+				String actual_beratsubstance4box = allValues.get(8);
+				Float actual_beratsubstance4_box =  Float.parseFloat(actual_beratsubstance4box);
+
 				assertEquals(actual_beratsubstance4_box, expected_beratsubstance4_box);
+				//assertEquals(actual_beratsubstance4_box, expected_beratsubstance4_box);
+				//assertEquals(actual_beratsubstance4_box, expected_beratsubstance4_box);
 				System.out.println("actual_beratsubstance4_box " + actual_beratsubstance4_box);
 				System.out.println("expected_beratsubstance4_box " + expected_beratsubstance4_box);
 	}
@@ -270,8 +330,14 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float identifierBox5 = 1;
 				float beratSubstanceBox5 = ((((((qValuebox5 / 1000) * sheetLengthBox5) / 1000) * minLebarMmSheetBox5) / 1000) * identifierBox5) * 
 				corrBox;
-				String expected_beratsubstance5_box = String.format("%.2f", beratSubstanceBox5);
-				String actual_beratsubstance5_box = allValues.get(9);
+				
+				BigDecimal beratSubstanceBox_5 = new BigDecimal(beratSubstanceBox5);
+				beratSubstanceBox_5 = beratSubstanceBox_5.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance5_box = beratSubstanceBox_5.floatValue();
+				
+				String actual_beratsubstance5box = allValues.get(9);
+				Float actual_beratsubstance5_box =  Float.parseFloat(actual_beratsubstance5box);
+				
 				assertEquals(actual_beratsubstance5_box, expected_beratsubstance5_box);
 				System.out.println("actual_beratsubstance5_box " + actual_beratsubstance5_box);
 				System.out.println("expected_beratsubstance5_box " + expected_beratsubstance5_box);
@@ -284,9 +350,12 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 		//int outkertas_partisi = Math.floor(lebarKertasMinimum_partisi / width_partisi)
 		//out dengan nilai lebarkertasminumim terbesar (dataase mcsheet)
 		outkertas_partisi = 5;
-		String expected_outkrts_partisi = Float.toString(outkertas_partisi);
-		String actual_outkrts_partisi = allValues.get(10);
+		
+		int expected_outkrts_partisi= outkertas_partisi;
+		String outkrts_partisi= allValues.get(10);
+		int actual_outkrts_partisi = Integer.parseInt(outkrts_partisi);
 		assertEquals(actual_outkrts_partisi, expected_outkrts_partisi);
+		
 		System.out.println("actual_otkrts_partisi " + actual_outkrts_partisi);
 		System.out.println("expected_outkrts_partisi " + expected_outkrts_partisi);
 	}
@@ -296,10 +365,13 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				constantDoubleJoint_partisi = 1;
 				out_partisi = outkertas_partisi;
 				outKnife_partisi = 1;
-				corrPartisi = (float) (constantDoubleJoint_partisi * Math.floor((qty / out_partisi) / outKnife_partisi));
-				String expected_corr_partisi = Float.toString(corrPartisi);
-				String actual_corr_partisi = allValues.get(11);
+				corrPartisi = (int) (constantDoubleJoint_partisi * Math.floor((qty / out_partisi) / outKnife_partisi));
+				
+				int expected_corr_partisi = corrPartisi;
+				String corr_partisi = allValues.get(11);
+				int actual_corr_partisi = Integer.parseInt(corr_partisi);
 				assertEquals(actual_corr_partisi, expected_corr_partisi);
+				
 				System.out.println("actual_corr_partisi " + actual_corr_partisi);
 				System.out.println("expected_corr_partisi " + expected_corr_partisi);
 	}
@@ -312,9 +384,12 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 
 				//calculate berat box partisi
 				beratBoxPartisi = (float)(Math.ceil(((weight_partisi / qty) * 1000) * 100) / 100);
-				String expected_beratbox_partisi = Float.toString(beratBoxPartisi);
-				String actual_beratbox_partisi = allValues.get(12);
+				
+				Float expected_beratbox_partisi = beratBoxPartisi;
+				String beratbox_partisi = allValues.get(12);
+				Float actual_beratbox_partisi = Float.parseFloat(beratbox_partisi); 
 				assertEquals(actual_beratbox_partisi, expected_beratbox_partisi);
+				
 				System.out.println("actual_beratbox_partisi " + actual_beratbox_partisi);
 				System.out.println("expected_beratbox_partisi " + expected_beratbox_partisi);
 	}
@@ -323,9 +398,12 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 	
 				//calculate berat order partisi
 				float beratOrderPartisi = (float) (Math.ceil(weight_partisi * 100) / 100);
-				String expected_beratorder_partisi = Float.toString(beratOrderPartisi);
-				String actual_beratorder_partisi = allValues.get(13);
+				
+				Float expected_beratorder_partisi = beratOrderPartisi;
+				String beratorder_partisi = allValues.get(13);
+				Float actual_beratorder_partisi = Float.parseFloat(beratorder_partisi);
 				assertEquals(actual_beratorder_partisi, expected_beratorder_partisi);
+				
 				System.out.println("actual_beratorder_partisi " + actual_beratorder_partisi);
 				System.out.println("expected_beratorder_partisi " + expected_beratorder_partisi);
 	}
@@ -340,9 +418,11 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				//float beratTrimPartisi = qty / out_partisi * trimWasteGram_partisi / 1000
 				float beratTrimPartisi = (float) (Math.ceil((corrPartisi * lengthPartisi / 1000 * lebarKertasPartisi / 1000 * gsmPartisi / 1000) * 100)/100);
 
-				String expected_berattrim_partisi = Float.toString(beratTrimPartisi);
-				String actual_berattrim_partisi = allValues.get(14);
+				Float expected_berattrim_partisi = beratTrimPartisi;
+				String berattrim_partisi = allValues.get(14);
+				Float actual_berattrim_partisi = Float.parseFloat(berattrim_partisi);
 				assertEquals(actual_berattrim_partisi, expected_berattrim_partisi);
+				
 				System.out.println("actual_berattrim_partisi " + actual_berattrim_partisi);
 				System.out.println("expected_berattrim_partisi " + expected_berattrim_partisi);
 	}
@@ -355,9 +435,16 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float identifierPartisi1 = 1;
 				float beratSubstancePartisi1 = ((((((qValuepartisi1 / 1000) * sheetLengthPartisi1) / 1000) * minLebarMmSheetPartisi1) / 
 				1000) * identifierPartisi1) * corrPartisi;
-				String expected_beratsubstance1_partisi = String.format("%.2f", beratSubstancePartisi1);
-				String actual_beratsubstance1_partisi = allValues.get(15);
+				
+				BigDecimal beratSubstancePartisi_1 = new BigDecimal(beratSubstancePartisi1);
+				beratSubstancePartisi_1 = beratSubstancePartisi_1.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance1_partisi = beratSubstancePartisi_1.floatValue();
+				
+				String actual_beratsubstance1Partisi = allValues.get(15);
+				Float actual_beratsubstance1_partisi =  Float.parseFloat(actual_beratsubstance1Partisi);
+				
 				assertEquals(actual_beratsubstance1_partisi, expected_beratsubstance1_partisi);
+				
 				System.out.println("actual_beratsubstance1_partisi " + actual_beratsubstance1_partisi);
 				System.out.println("expected_beratsubstance1_partisi " + expected_beratsubstance1_partisi);
 	}
@@ -370,9 +457,16 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float identifierPartisi2 = 1.33f;
 				float beratSubstancePartisi2 = ((((((qValuepartisi2 / 1000) * sheetLengthPartisi2) / 1000) * minLebarMmSheetPartisi2) / 
 				1000) * identifierPartisi2) * corrPartisi;
-				String expected_beratsubstance2_partisi = String.format("%.2f", beratSubstancePartisi2);
-				String actual_beratsubstance2_partisi = allValues.get(16);
+				
+				BigDecimal beratSubstancePartisi_2 = new BigDecimal(beratSubstancePartisi2);
+				beratSubstancePartisi_2 = beratSubstancePartisi_2.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance2_partisi = beratSubstancePartisi_2.floatValue();
+				
+				String actual_beratsubstance2Partisi = allValues.get(16);
+				Float actual_beratsubstance2_partisi =  Float.parseFloat(actual_beratsubstance2Partisi);
+				
 				assertEquals(actual_beratsubstance2_partisi, expected_beratsubstance2_partisi);
+				
 				System.out.println("actual_beratsubstance2_partisi " + actual_beratsubstance2_partisi);
 				System.out.println("expected_beratsubstance2_partisi " + expected_beratsubstance2_partisi);
 	}
@@ -385,9 +479,16 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float identifierPartisi3 = 1;
 				float beratSubstancePartisi3 = ((((((qValuepartisi3 / 1000) * sheetLengthPartisi3) / 1000) * minLebarMmSheetPartisi3) / 
 				1000) * identifierPartisi3) * corrPartisi;
-				String expected_beratsubstance3_partisi = String.format("%.2f", beratSubstancePartisi3);
-				String actual_beratsubstance3_partisi = allValues.get(17);
+				
+				BigDecimal beratSubstancePartisi_3 = new BigDecimal(beratSubstancePartisi3);
+				beratSubstancePartisi_3 = beratSubstancePartisi_3.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance3_partisi = beratSubstancePartisi_3.floatValue();
+				
+				String actual_beratsubstance3Partisi = allValues.get(17);
+				Float actual_beratsubstance3_partisi =  Float.parseFloat(actual_beratsubstance3Partisi);
+				
 				assertEquals(actual_beratsubstance3_partisi, expected_beratsubstance3_partisi);
+				
 				System.out.println("actual_beratsubstance3_partisi " + actual_beratsubstance3_partisi);
 				System.out.println("expected_beratsubstance3_partisi " + expected_beratsubstance3_partisi);
 	}
@@ -400,9 +501,16 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float identifierPartisi4 = 1.42f;
 				float beratSubstancePartisi4 = ((((((qValuepartisi4 / 1000) * sheetLengthPartisi4) / 1000) * minLebarMmSheetPartisi4) / 
 				1000) * identifierPartisi4) * corrPartisi;
-				String expected_beratsubstance4_partisi = String.format("%.2f", beratSubstancePartisi4);
-				String actual_beratsubstance4_partisi = allValues.get(18);
+
+				BigDecimal beratSubstancePartisi_4 = new BigDecimal(beratSubstancePartisi4);
+				beratSubstancePartisi_4 = beratSubstancePartisi_4.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance4_partisi = beratSubstancePartisi_4.floatValue();
+				
+				String actual_beratsubstance4Partisi = allValues.get(18);
+				Float actual_beratsubstance4_partisi =  Float.parseFloat(actual_beratsubstance4Partisi);
+				
 				assertEquals(actual_beratsubstance4_partisi, expected_beratsubstance4_partisi);
+				
 				System.out.println("actual_beratsubstance4_partisi " + actual_beratsubstance4_partisi);
 				System.out.println("expected_beratsubstance4_partisi " + expected_beratsubstance4_partisi);
 	}
@@ -415,15 +523,23 @@ public class VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 {
 				float identifierPartisi5 = 1;
 				float beratSubstancePartisi5 = ((((((qValuepartisi5 / 1000) * sheetLengthPartisi5) / 1000) * minLebarMmSheetPartisi5) / 
 				1000) * identifierPartisi5) * corrPartisi;
-				String expected_beratsubstance5_partisi = String.format("%.2f", beratSubstancePartisi5);
-				String actual_beratsubstance5_partisi = allValues.get(19);
+
+				BigDecimal beratSubstancePartisi_5 = new BigDecimal(beratSubstancePartisi5);
+				beratSubstancePartisi_5 = beratSubstancePartisi_5.setScale(2, RoundingMode.HALF_UP);
+				Float expected_beratsubstance5_partisi = beratSubstancePartisi_5.floatValue();
+				
+				String actual_beratsubstance5Partisi = allValues.get(19);
+				Float actual_beratsubstance5_partisi =  Float.parseFloat(actual_beratsubstance5Partisi);
+				
 				assertEquals(actual_beratsubstance5_partisi, expected_beratsubstance5_partisi);
+				
 				System.out.println("actual_beratsubstance5_partisi " + actual_beratsubstance5_partisi);
 				System.out.println("expected_beratsubstance5_partisi " + expected_beratsubstance5_partisi);
 	}
 	@AfterTest
 	public void tearDownTest() {    
-		driver.quit();
+		driver.quit();	
+				
 	}
 
 }

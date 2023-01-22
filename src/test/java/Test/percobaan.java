@@ -2,6 +2,8 @@ package Test;
 
 import static org.testng.Assert.assertEquals;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,54 +41,34 @@ public class percobaan {
 		LoginPage.password_textbox(driver);
 		LoginPage.button_login(driver).click();
 		
-		String outkrts, corr, beratbox, beratorder, berattrim, BeratSubstance1, BeratSubstance2, BeratSubstance3, BeratSubstance4, BeratSubstance5;
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'SPK Rework Request Approval')]")));
-
-		driver.findElement(By.id("rootmenu-production")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Work Order (SPK)")));
-		driver.findElement(By.linkText("Work Order (SPK)")).click();
-		driver.findElement(By.className("filter-block__title")).click();
-		driver.findElement(By.name("noWorkorder")).sendKeys("2210.0123.SPK");
-		driver.findElement(By.name("submit")).click();
-		Thread.sleep(100);
-	    driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span[1]/a[1]")).click();
 		
-		String noSPKset = driver.findElement(By.name("noWorkorderGrouped")).getAttribute("value");
-		outkrts = driver.findElement(By.cssSelector(".wo_out input")).getAttribute("value");
-		corr = driver.findElement(By.cssSelector(".wo_corr input")).getAttribute("value");
-		beratbox = driver.findElement(By.cssSelector(".wo_weightperkg input")).getAttribute("value");
-		beratorder = driver.findElement(By.cssSelector(".wo_weight input")).getAttribute("value");
-		berattrim = driver.findElement(By.cssSelector(".wo_trimweight input")).getAttribute("value");
-		BeratSubstance1 = driver.findElement(By.cssSelector(".wo_gsmweight1 input")).getAttribute("value");
-		BeratSubstance2 = driver.findElement(By.cssSelector(".wo_gsmweight2 input")).getAttribute("value");
-		BeratSubstance3 = driver.findElement(By.cssSelector(".wo_gsmweight3 input")).getAttribute("value");
-		BeratSubstance4 = driver.findElement(By.cssSelector(".wo_gsmweight4 input")).getAttribute("value");
-		BeratSubstance5 = driver.findElement(By.cssSelector(".wo_gsmweight5 input")).getAttribute("value");
-		driver.findElement(By.xpath("//button[@name='back-button']")).click();
-		
-		System.out.println("no spk set" + noSPKset);
-		System.out.println("out kertas " + outkrts);
-		System.out.println("corr " + corr);
-		System.out.println("berat box" + beratbox);
-		System.out.println("berat order" + beratorder);
-		System.out.println("berat trim" + berattrim);
-		System.out.println("berat substance 1 " + BeratSubstance1);
-		System.out.println("berat substance 2 " + BeratSubstance2);
-		System.out.println("berat substance 3 " + BeratSubstance3);
-		System.out.println("berat substance 4 " + BeratSubstance4);
-		System.out.println("berat substance 5 " + BeratSubstance5);
-		    		
-		}
-
-			
-	
-	
+	}
 	@Test
-	public void firstTest() throws InterruptedException {
-		assertEquals(4, 4);
-	    	}
+	public void test() {
+		//String dada = "1.60";
+		//Float ayam = Float.parseFloat(dada);
+		//System.out.println(ayam);
+		
+//		BigDecimal bd = new BigDecimal(dada);
+//		bd = bd.setScale(2, RoundingMode.HALF_DOWN);
+//		float ayam = bd.floatValue(); 
+//		System.out.println(ayam); // Prints 42.41
+		
+		float dada = 0f;
+		BigDecimal bd = new BigDecimal(dada);
+		bd = bd.setScale(2, RoundingMode.HALF_DOWN);
+		Float dada1 = bd.floatValue();
+		System.out.println(dada1);
+		
+		String bebek = "0";
+		Float bebek1 = Float.parseFloat(bebek);
+		System.out.println(bebek1);
+		
+		assertEquals(bebek1, dada);
+		
+		
+	}
 	
 	
 	@AfterTest

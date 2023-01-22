@@ -1,25 +1,355 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="30" passed="27" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-12-08T15:50:30 ICT" name="Default suite" finished-at="2022-12-08T15:50:56 ICT" duration-ms="25230">
+  <suite started-at="2023-01-22T19:07:58 ICT" name="Suite1" finished-at="2023-01-22T19:12:11 ICT" duration-ms="252057">
     <groups>
     </groups>
-    <test started-at="2022-12-08T15:50:30 ICT" name="Default test" finished-at="2022-12-08T15:50:56 ICT" duration-ms="25230">
-      <class name="sales_order.VerifyValueOfPPH23inAddSalesOrderModule">
-        <test-method is-config="true" signature="setUpTest()[pri:0, instance:sales_order.VerifyValueOfPPH23inAddSalesOrderModule@34a0ef00]" started-at="2022-12-08T15:50:30 ICT" name="setUpTest" finished-at="2022-12-08T15:50:37 ICT" duration-ms="6844" status="PASS">
+    <test started-at="2023-01-22T19:07:58 ICT" name="Test1" finished-at="2023-01-22T19:08:29 ICT" duration-ms="30998">
+      <class name="sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2@4cbf4f53]" started-at="2023-01-22T19:07:58 ICT" name="setUpTest" finished-at="2023-01-22T19:08:27 ICT" duration-ms="28329" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpTest -->
-        <test-method signature="firstTest()[pri:0, instance:sales_order.VerifyValueOfPPH23inAddSalesOrderModule@34a0ef00]" started-at="2022-12-08T15:50:37 ICT" name="firstTest" finished-at="2022-12-08T15:50:55 ICT" duration-ms="17972" status="PASS">
+        <test-method signature="firstTest()[pri:1, instance:sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2@4cbf4f53]" started-at="2023-01-22T19:08:27 ICT" name="firstTest" finished-at="2023-01-22T19:08:27 ICT" duration-ms="349" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- firstTest -->
-        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:sales_order.VerifyValueOfPPH23inAddSalesOrderModule@34a0ef00]" started-at="2022-12-08T15:50:56 ICT" name="tearDownTest" finished-at="2022-12-08T15:50:56 ICT" duration-ms="2" status="PASS">
+        <test-method signature="secondTest()[pri:2, instance:sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2@4cbf4f53]" started-at="2023-01-22T19:08:28 ICT" name="secondTest" finished-at="2023-01-22T19:08:28 ICT" duration-ms="68" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- secondTest -->
+        <test-method signature="thirdTest()[pri:3, instance:sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2@4cbf4f53]" started-at="2023-01-22T19:08:28 ICT" name="thirdTest" finished-at="2023-01-22T19:08:28 ICT" duration-ms="380" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- thirdTest -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2@4cbf4f53]" started-at="2023-01-22T19:08:28 ICT" name="tearDownTest" finished-at="2023-01-22T19:08:29 ICT" duration-ms="1283" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownTest -->
-      </class> <!-- sales_order.VerifyValueOfPPH23inAddSalesOrderModule -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2 -->
+    </test> <!-- Test1 -->
+    <test started-at="2023-01-22T19:08:30 ICT" name="Test2" finished-at="2023-01-22T19:09:45 ICT" duration-ms="75366">
+      <class name="release_sales_order.ReleaseSalesOrderBoxPartisi">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:release_sales_order.ReleaseSalesOrderBoxPartisi@48535004]" started-at="2023-01-22T19:08:30 ICT" name="setUpTest" finished-at="2023-01-22T19:08:34 ICT" duration-ms="4679" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="firstTest()[pri:0, instance:release_sales_order.ReleaseSalesOrderBoxPartisi@48535004]" started-at="2023-01-22T19:08:34 ICT" name="firstTest" finished-at="2023-01-22T19:09:45 ICT" duration-ms="70333" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstTest -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:release_sales_order.ReleaseSalesOrderBoxPartisi@48535004]" started-at="2023-01-22T19:09:45 ICT" name="tearDownTest" finished-at="2023-01-22T19:09:45 ICT" duration-ms="343" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- release_sales_order.ReleaseSalesOrderBoxPartisi -->
+    </test> <!-- Test2 -->
+    <test started-at="2023-01-22T19:09:45 ICT" name="Test3" finished-at="2023-01-22T19:10:56 ICT" duration-ms="70628">
+      <class name="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:09:45 ICT" name="setUpTest" finished-at="2023-01-22T19:10:25 ICT" duration-ms="39684" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="firstTes()[pri:1, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:25 ICT" name="firstTes" finished-at="2023-01-22T19:10:55 ICT" duration-ms="30103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstTes -->
+        <test-method signature="calculate_outKertas_box()[pri:2, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_outKertas_box" finished-at="2023-01-22T19:10:55 ICT" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_outKertas_box -->
+        <test-method signature="calculate_corr_box()[pri:3, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_corr_box" finished-at="2023-01-22T19:10:55 ICT" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_corr_box -->
+        <test-method signature="calculate_beratBox_box()[pri:4, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratBox_box" finished-at="2023-01-22T19:10:55 ICT" duration-ms="10" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [133.08] but found [133.09]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [133.08] but found [133.09]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:617)
+at work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2.calculate_beratBox_box(VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2.java:207)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratBox_box -->
+        <test-method signature="calculate_beratOrder_box()[pri:5, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratOrder_box" finished-at="2023-01-22T19:10:55 ICT" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratOrder_box -->
+        <test-method signature="calculate_beratTrim_box()[pri:6, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratTrim_box" finished-at="2023-01-22T19:10:55 ICT" duration-ms="5" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [0.48433003] but found [0.48433]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [0.48433003] but found [0.48433]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:617)
+at work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2.calculate_beratTrim_box(VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2.java:235)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratTrim_box -->
+        <test-method signature="calculate_beratSubstanceBox1()[pri:7, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstanceBox1" finished-at="2023-01-22T19:10:55 ICT" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstanceBox1 -->
+        <test-method signature="calculate_beratSubstanceBox2()[pri:8, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstanceBox2" finished-at="2023-01-22T19:10:55 ICT" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstanceBox2 -->
+        <test-method signature="calculate_beratSubstanceBox3()[pri:9, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstanceBox3" finished-at="2023-01-22T19:10:55 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstanceBox3 -->
+        <test-method signature="calculate_beratSubstanceBox4()[pri:10, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstanceBox4" finished-at="2023-01-22T19:10:55 ICT" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstanceBox4 -->
+        <test-method signature="calculate_beratSubstanceBox5()[pri:11, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstanceBox5" finished-at="2023-01-22T19:10:55 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstanceBox5 -->
+        <test-method signature="calculate_outKertas_partisi()[pri:12, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_outKertas_partisi" finished-at="2023-01-22T19:10:55 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_outKertas_partisi -->
+        <test-method signature="calculate_corr_partisi()[pri:13, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_corr_partisi" finished-at="2023-01-22T19:10:55 ICT" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_corr_partisi -->
+        <test-method signature="calculate_beratBox_partisi()[pri:14, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratBox_partisi" finished-at="2023-01-22T19:10:55 ICT" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratBox_partisi -->
+        <test-method signature="calculate_beratOrder_partisi()[pri:15, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratOrder_partisi" finished-at="2023-01-22T19:10:55 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratOrder_partisi -->
+        <test-method signature="calculate_beratTrim_partisi()[pri:16, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratTrim_partisi" finished-at="2023-01-22T19:10:55 ICT" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratTrim_partisi -->
+        <test-method signature="calculate_beratSubstancePartisi1()[pri:17, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstancePartisi1" finished-at="2023-01-22T19:10:55 ICT" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstancePartisi1 -->
+        <test-method signature="calculate_beratSubstancePartisi2()[pri:18, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstancePartisi2" finished-at="2023-01-22T19:10:55 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstancePartisi2 -->
+        <test-method signature="calculate_beratSubstancePartisi3()[pri:19, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstancePartisi3" finished-at="2023-01-22T19:10:55 ICT" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstancePartisi3 -->
+        <test-method signature="calculate_beratSubstancePartisi4()[pri:20, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstancePartisi4" finished-at="2023-01-22T19:10:55 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstancePartisi4 -->
+        <test-method signature="calculate_beratSubstancePartisi5()[pri:21, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="calculate_beratSubstancePartisi5" finished-at="2023-01-22T19:10:55 ICT" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- calculate_beratSubstancePartisi5 -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2@7ce9e05a]" started-at="2023-01-22T19:10:55 ICT" name="tearDownTest" finished-at="2023-01-22T19:10:56 ICT" duration-ms="320" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 -->
+    </test> <!-- Test3 -->
+    <test started-at="2023-01-22T19:10:56 ICT" name="Test4" finished-at="2023-01-22T19:11:20 ICT" duration-ms="24353">
+      <class name="perpindahan_wip.PerpindahanWIPBoxPartisi">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:perpindahan_wip.PerpindahanWIPBoxPartisi@53ac845a]" started-at="2023-01-22T19:10:56 ICT" name="setUpTest" finished-at="2023-01-22T19:11:00 ICT" duration-ms="4242" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="firstTest()[pri:0, instance:perpindahan_wip.PerpindahanWIPBoxPartisi@53ac845a]" started-at="2023-01-22T19:11:00 ICT" name="firstTest" finished-at="2023-01-22T19:11:20 ICT" duration-ms="19699" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <button type="button" class="ant-btn ant-btn-primary">...</button> is not clickable at point (598, 360). Other element would receive the click: <div tabindex="-1" class="ant-modal-wrap">...</div>
+  (Session info: chrome=109.0.5414.75)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'LAPTOP-E00FH6K0', ip: '172.21.32.1', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [81a4977cbe85b1caeb3ac5d2eedc98c2, clickElement {id=92f5ea88-0902-4877-8d15-d367506095c0}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\Shelly\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:64544}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64544/devtoo..., se:cdpVersion: 109.0.5414.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (81a4977cbe85b1caeb3ac5d2eedc98c2)] -> xpath: //button[contains(@class, 'ant-btn ant-btn-primary') and contains(span, 'Yes')]]
+Session ID: 81a4977cbe85b1caeb3ac5d2eedc98c2]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button type="button" class="ant-btn ant-btn-primary">...</button> is not clickable at point (598, 360). Other element would receive the click: <div tabindex="-1" class="ant-modal-wrap">...</div>
+  (Session info: chrome=109.0.5414.75)
+Build info: version: '4.4.0', revision: 'e5c75ed026a'
+System info: host: 'LAPTOP-E00FH6K0', ip: '172.21.32.1', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.16.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [81a4977cbe85b1caeb3ac5d2eedc98c2, clickElement {id=92f5ea88-0902-4877-8d15-d367506095c0}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\Shelly\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:64544}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64544/devtoo..., se:cdpVersion: 109.0.5414.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (81a4977cbe85b1caeb3ac5d2eedc98c2)] -> xpath: //button[contains(@class, 'ant-btn ant-btn-primary') and contains(span, 'Yes')]]
+Session ID: 81a4977cbe85b1caeb3ac5d2eedc98c2
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:78)
+at pages.PerpindahanWIPPage.click_yesSubmit(PerpindahanWIPPage.java:74)
+at perpindahan_wip.PerpindahanWIPBoxPartisi.firstTest(PerpindahanWIPBoxPartisi.java:89)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstTest -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:perpindahan_wip.PerpindahanWIPBoxPartisi@53ac845a]" started-at="2023-01-22T19:11:20 ICT" name="tearDownTest" finished-at="2023-01-22T19:11:20 ICT" duration-ms="383" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- perpindahan_wip.PerpindahanWIPBoxPartisi -->
+    </test> <!-- Test4 -->
+    <test started-at="2023-01-22T19:11:20 ICT" name="Test5" finished-at="2023-01-22T19:11:43 ICT" duration-ms="22733">
+      <class name="quality_check.QCBeratTimbangBoxPartisi">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:quality_check.QCBeratTimbangBoxPartisi@50194e8d]" started-at="2023-01-22T19:11:20 ICT" name="setUpTest" finished-at="2023-01-22T19:11:24 ICT" duration-ms="4255" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="firstTest()[pri:1, instance:quality_check.QCBeratTimbangBoxPartisi@50194e8d]" started-at="2023-01-22T19:11:24 ICT" name="firstTest" finished-at="2023-01-22T19:11:36 ICT" duration-ms="12283" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstTest -->
+        <test-method signature="secondTest()[pri:2, instance:quality_check.QCBeratTimbangBoxPartisi@50194e8d]" started-at="2023-01-22T19:11:37 ICT" name="secondTest" finished-at="2023-01-22T19:11:42 ICT" duration-ms="5930" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- secondTest -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:quality_check.QCBeratTimbangBoxPartisi@50194e8d]" started-at="2023-01-22T19:11:42 ICT" name="tearDownTest" finished-at="2023-01-22T19:11:43 ICT" duration-ms="248" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- quality_check.QCBeratTimbangBoxPartisi -->
+    </test> <!-- Test5 -->
+    <test started-at="2023-01-22T19:11:43 ICT" name="Test6" finished-at="2023-01-22T19:12:11 ICT" duration-ms="27795">
+      <class name="input_hasil_produksi.InputHasilProduksiBoxPartisi">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:input_hasil_produksi.InputHasilProduksiBoxPartisi@59496961]" started-at="2023-01-22T19:11:43 ICT" name="setUpTest" finished-at="2023-01-22T19:11:47 ICT" duration-ms="4062" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="firstTest()[pri:1, instance:input_hasil_produksi.InputHasilProduksiBoxPartisi@59496961]" started-at="2023-01-22T19:11:47 ICT" name="firstTest" finished-at="2023-01-22T19:12:01 ICT" duration-ms="14440" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstTest -->
+        <test-method signature="secondTest()[pri:2, instance:input_hasil_produksi.InputHasilProduksiBoxPartisi@59496961]" started-at="2023-01-22T19:12:01 ICT" name="secondTest" finished-at="2023-01-22T19:12:10 ICT" duration-ms="8964" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- secondTest -->
+        <test-method is-config="true" signature="tearDownTest()[pri:0, instance:input_hasil_produksi.InputHasilProduksiBoxPartisi@59496961]" started-at="2023-01-22T19:12:10 ICT" name="tearDownTest" finished-at="2023-01-22T19:12:11 ICT" duration-ms="314" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- input_hasil_produksi.InputHasilProduksiBoxPartisi -->
+    </test> <!-- Test6 -->
+  </suite> <!-- Suite1 -->
 </testng-results>

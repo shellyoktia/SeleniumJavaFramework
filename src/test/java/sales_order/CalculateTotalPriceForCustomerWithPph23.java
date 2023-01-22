@@ -4,31 +4,48 @@ import static org.testng.Assert.assertEquals;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
+import pages.SalesOrderPage;
+import pages.SalesPersonName;
+import pages.CustomerName;
+import pages.Mastercard;
+import pages.BillingAddress;
+import pages.ShippingAddress;
+import pages.Home;
 
 public class CalculateTotalPriceForCustomerWithPph23 {
 	private static WebDriver driver = null;
+	String noSalesOrder = "tes pph23";
 	String quantity = "5";
     String price = "73000";
     String ongkos_printing = "10000";
     String komisi_cust = "2000";
+    SalesOrderPage objSalesOrder;
+    SalesPersonName objSalesPerson;
+    CustomerName objCustomer;
+    Mastercard objMastercard;
+    BillingAddress objBillingAddress;
+    ShippingAddress objShippingAddress;
+    Home objHome;
     
 	@BeforeTest
 	public void setUpTest() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		objSalesOrder = new SalesOrderPage(driver);
+		objSalesPerson = new SalesPersonName(driver);
+		objCustomer = new CustomerName(driver);
+		objMastercard = new Mastercard(driver);
+		objBillingAddress = new BillingAddress(driver);
+		objShippingAddress = new ShippingAddress(driver);
+		objHome = new Home(driver);
 		
 		//ke url
 		LoginPage.url_localhost(driver);
@@ -43,77 +60,68 @@ public class CalculateTotalPriceForCustomerWithPph23 {
 	}
 	@Test
 	public void firstTest() throws InterruptedException {
-		Actions action = new Actions(driver);
 		
 	    //ke halaman sales order
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'SPK Rework Request Approval')]")));
-		driver.findElement(By.id("rootmenu-sales")).click();
-		driver.findElement(By.linkText("Sales Order")).click();
+		objHome.waitCardToBeClickable();
+		objHome.click_rootmenuSales();
+		objSalesOrder.click_menuSalesOrder();
 
 	    //add new sales order
-	    driver.findElement(By.name("add")).click();
+		objSalesOrder.click_addSalesOrder();
 	    
 	    //input no sales order
-	    driver.findElement(By.name("noSalesorder")).sendKeys("tes satu");
+		objSalesOrder.input_noSalesOrder(noSalesOrder);
 	    
 	    //input sales person
-	    WebElement salesPerson = driver.findElement(By.xpath("//div[contains(@class, 'so-salesperson')]")); 
-	    action.moveToElement(salesPerson).click().sendKeys("sujadi").build().perform();
-	    driver.findElement(By.xpath("//li[contains(text(),'303 - Sujadi')]")).click(); 
+		objSalesOrder.input_salesPerson("sujadi");	    
+	  	objSalesPerson.clickSalesPerson_Sujadi(); 
 	    
 	    //input customer
-	    WebElement customer = driver.findElement(By.cssSelector(".so-customer .ant-select-selection__placeholder"));
-	    action.moveToElement(customer).click().sendKeys("gelora").build().perform();
-	    driver.findElement(By.xpath("//li[contains(text(),'PT GELORA DJAJA')]")).click(); 
+	  	objSalesOrder.input_customer("gelora");
+	    objCustomer.clickCustomer_PTGeloraDjaja();
 	      
 	    //input billing address
-	    driver.findElement(By.cssSelector(".so-bilingaddress .ant-select-selection__placeholder")).click();
-	    driver.findElement(By.xpath("//li[contains(text(),'BUNTARAN')]")).click();
+	    objSalesOrder.click_billingAddress();
+	    objBillingAddress.clickBillingAddress_PTGeloraDjaja();
 	    
 	    //input shipping address
-	    driver.findElement(By.cssSelector(".so-shippingaddress .ant-select-selection__placeholder")).click();
-	    driver.findElement(By.xpath("//label[contains(text(),'Default Shipping Address')]/following::li[contains(text(),'BUNTARAN')][2]")).click();
+	    objSalesOrder.click_shippingAddress();
+	    objShippingAddress.clickShippingAddress_PTGeloraDjaja();
 	    
 	    //add sales order line
-	    driver.findElement(By.cssSelector(".fa-plus-circle")).click();
+	    objSalesOrder.click_addSalesOrderLine();
 	    
 	    //pilih tipe
-	    driver.findElement(By.cssSelector(".sol-type .ant-select-selection__placeholder")).click();
-	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(text(),'Box')]")));
-	    driver.findElement(By.xpath("//li[contains(text(),'Box')]")).click();
+	    objSalesOrder.click_tipeSalesOrderLine();
+	    objSalesOrder.clickTipeSalesOrderLine_Box();
 	    
 	    //pilih mc
-	    driver.findElement(By.cssSelector(".sol-mastercard .ant-select-selection__placeholder")).click();
-	    driver.findElement(By.xpath("//li[contains(text(),'897 - 000638R01 - BOX-KBOX WD12 NW 001628. CDI.18')]")).click();
+	    objSalesOrder.click_mastercard();
+	    objMastercard.clickMastercard_PTGeloraDjaja_000638R01();
 	  
 	    //quantity
-	    WebElement qty = driver.findElement(By.cssSelector(".sol-quantity .ant-input-number-input-wrap"));
-	    action.moveToElement(qty).click().sendKeys(quantity).build().perform();
+	    objSalesOrder.input_quantity(quantity);
 	    
 	    //unit
-	    driver.findElement(By.cssSelector(".sol-unitmeasurement .ant-select-selection__rendered")).click();
-	    driver.findElement(By.xpath("//li[contains(text(),'pcs')]")).click();
+	    objSalesOrder.click_unitSalesOrderLine();
+	    objSalesOrder.clickUnitSalesOrderLine_pcs();
 	    
 	    //harga
-	    WebElement harga = driver.findElement(By.cssSelector(".sol-unitprice .ant-input-number-input-wrap"));
-	    action.moveToElement(harga).click().sendKeys(price).build().perform();
+	    objSalesOrder.input_harga(price);
 	    
 	    //ongkos printing
-	    WebElement ongkosPrinting = driver.findElement(By.cssSelector(".sol-unitserviceprice .ant-input-number-input"));
-	    action.moveToElement(ongkosPrinting).click().sendKeys(ongkos_printing).build().perform();
+	    objSalesOrder.input_ongkosPrinting(ongkos_printing);
 	    
 	    //komisi cust.
-	    WebElement KomisiCust = driver.findElement(By.cssSelector(".sol-customercomission .ant-input-number-input"));
-	    action.moveToElement(KomisiCust).click().sendKeys(komisi_cust).build().perform();
+	    objSalesOrder.input_komisiCustomer(komisi_cust);
 	    
 	    //tanggal
-	    driver.findElement(By.cssSelector(".sol-deliverydate .ant-calendar-picker-input")).click();
-	    driver.findElement(By.cssSelector(".ant-calendar-today > .ant-calendar-date")).click();
+	    objSalesOrder.click_calendar();
+	    objSalesOrder.click_tanggalHariIni();
 	    
 	    //total harga
-	    String actualTotalHarga = driver.findElement(By.cssSelector(".sol-totalamount .ant-input-number-input")).getAttribute("value");
+	    String actualTotalHarga = objSalesOrder.getTotalHargaValue();
 	    System.out.println("Actual Total Harga : " + actualTotalHarga);
 	    
 	    //verify

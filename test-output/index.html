@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,8 +39,8 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+            <a href="#" panel-name="suite-Suite1" class="navigator-link">
+              <span class="suite-name border-failed">Suite1</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,37 +50,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Shelly\AppData\Local\Temp\testng-eclipse-953592821\testng-customsuite.xml</span>
+                  <a href="#" panel-name="test-xml-Suite1" class="navigator-link ">
+                    <span>C:\Users\Shelly\git\SeleniumJavaFramework\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="testlist-Default_suite" class="navigator-link ">
-                    <span class="test-stats">1 test</span>
+                  <a href="#" panel-name="testlist-Suite1" class="navigator-link ">
+                    <span class="test-stats">6 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="group-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="group-Suite1" class="navigator-link ">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="times-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="times-Suite1" class="navigator-link ">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="reporter-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="reporter-Suite1" class="navigator-link ">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="ignored-methods-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="ignored-methods-Suite1" class="navigator-link ">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="chronological-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="chronological-Suite1" class="navigator-link ">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -93,21 +93,175 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">30 methods, 3 failed,   27 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite1" class="hide-methods failed suite-Suite1"> (hide)</a> <!-- hide-methods failed suite-Suite1 -->
+                      <a href="#" panel-name="suite-Suite1" class="show-methods failed suite-Suite1"> (show)</a> <!-- show-methods failed suite-Suite1 -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite1">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratBox_box">calculate_beratBox_box</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratTrim_box">calculate_beratTrim_box</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="perpindahan_wip.PerpindahanWIPBoxPartisi" class="method navigator-link" hash-for-method="firstTest">firstTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite1 -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
                     <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Suite1" class="hide-methods passed suite-Suite1"> (hide)</a> <!-- hide-methods passed suite-Suite1 -->
+                      <a href="#" panel-name="suite-Suite1" class="show-methods passed suite-Suite1"> (show)</a> <!-- show-methods passed suite-Suite1 -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content passed suite-Suite1">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="sales_order.VerifyValueOfPPH23inAddSalesOrderModule" class="method navigator-link" hash-for-method="firstTest">firstTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratBox_partisi">calculate_beratBox_partisi</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratOrder_box">calculate_beratOrder_box</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratOrder_partisi">calculate_beratOrder_partisi</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstanceBox1">calculate_beratSubstanceBox1</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstanceBox2">calculate_beratSubstanceBox2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstanceBox3">calculate_beratSubstanceBox3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstanceBox4">calculate_beratSubstanceBox4</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstanceBox5">calculate_beratSubstanceBox5</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstancePartisi1">calculate_beratSubstancePartisi1</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstancePartisi2">calculate_beratSubstancePartisi2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstancePartisi3">calculate_beratSubstancePartisi3</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstancePartisi4">calculate_beratSubstancePartisi4</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratSubstancePartisi5">calculate_beratSubstancePartisi5</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_beratTrim_partisi">calculate_beratTrim_partisi</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_corr_box">calculate_corr_box</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_corr_partisi">calculate_corr_partisi</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_outKertas_box">calculate_outKertas_box</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="calculate_outKertas_partisi">calculate_outKertas_partisi</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2" class="method navigator-link" hash-for-method="firstTes">firstTes</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2" class="method navigator-link" hash-for-method="firstTest">firstTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="release_sales_order.ReleaseSalesOrderBoxPartisi" class="method navigator-link" hash-for-method="firstTest">firstTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="quality_check.QCBeratTimbangBoxPartisi" class="method navigator-link" hash-for-method="firstTest">firstTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="input_hasil_produksi.InputHasilProduksiBoxPartisi" class="method navigator-link" hash-for-method="firstTest">firstTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2" class="method navigator-link" hash-for-method="secondTest">secondTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="quality_check.QCBeratTimbangBoxPartisi" class="method navigator-link" hash-for-method="secondTest">secondTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="input_hasil_produksi.InputHasilProduksiBoxPartisi" class="method navigator-link" hash-for-method="secondTest">secondTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite1" title="sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2" class="method navigator-link" hash-for-method="thirdTest">thirdTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Suite1 -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -118,11 +272,295 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
-        <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+        <div panel-name="suite-Suite1" class="panel Suite1">
+          <div class="suite-Suite1-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">perpindahan_wip.PerpindahanWIPBoxPartisi</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="firstTest">
+                  </a> <!-- firstTest -->
+                  <span class="method-name">firstTest</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button type=&quot;button&quot; class=&quot;ant-btn ant-btn-primary&quot;&gt;...&lt;/button&gt; is not clickable at point (598, 360). Other element would receive the click: &lt;div tabindex=&quot;-1&quot; class=&quot;ant-modal-wrap&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=109.0.5414.75)
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;LAPTOP-E00FH6K0&apos;, ip: &apos;172.21.32.1&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.16.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [81a4977cbe85b1caeb3ac5d2eedc98c2, clickElement {id=92f5ea88-0902-4877-8d15-d367506095c0}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.75, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\Shelly\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:64544}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64544/devtoo..., se:cdpVersion: 109.0.5414.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on WINDOWS (81a4977cbe85b1caeb3ac5d2eedc98c2)] -&gt; xpath: //button[contains(@class, &apos;ant-btn ant-btn-primary&apos;) and contains(span, &apos;Yes&apos;)]]
+Session ID: 81a4977cbe85b1caeb3ac5d2eedc98c2
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:78)
+	at pages.PerpindahanWIPPage.click_yesSubmit(PerpindahanWIPPage.java:74)
+	at perpindahan_wip.PerpindahanWIPBoxPartisi.firstTest(PerpindahanWIPBoxPartisi.java:89)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite1-class-failed -->
+          <div class="suite-Suite1-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratBox_box">
+                  </a> <!-- calculate_beratBox_box -->
+                  <span class="method-name">calculate_beratBox_box</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [133.08] but found [133.09]
+	at work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2.calculate_beratBox_box(VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2.java:207)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratTrim_box">
+                  </a> <!-- calculate_beratTrim_box -->
+                  <span class="method-name">calculate_beratTrim_box</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [0.48433003] but found [0.48433]
+	at work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2.calculate_beratTrim_box(VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2.java:235)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite1-class-failed -->
+          <div class="suite-Suite1-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">sales_order.VerifyValueOfPPH23inAddSalesOrderModule</span>
+              <span class="class-name">quality_check.QCBeratTimbangBoxPartisi</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="firstTest">
+                  </a> <!-- firstTest -->
+                  <span class="method-name">firstTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="secondTest">
+                  </a> <!-- secondTest -->
+                  <span class="method-name">secondTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite1-class-passed -->
+          <div class="suite-Suite1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">input_hasil_produksi.InputHasilProduksiBoxPartisi</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="firstTest">
+                  </a> <!-- firstTest -->
+                  <span class="method-name">firstTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="secondTest">
+                  </a> <!-- secondTest -->
+                  <span class="method-name">secondTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite1-class-passed -->
+          <div class="suite-Suite1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratBox_partisi">
+                  </a> <!-- calculate_beratBox_partisi -->
+                  <span class="method-name">calculate_beratBox_partisi</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratOrder_box">
+                  </a> <!-- calculate_beratOrder_box -->
+                  <span class="method-name">calculate_beratOrder_box</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratOrder_partisi">
+                  </a> <!-- calculate_beratOrder_partisi -->
+                  <span class="method-name">calculate_beratOrder_partisi</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstanceBox1">
+                  </a> <!-- calculate_beratSubstanceBox1 -->
+                  <span class="method-name">calculate_beratSubstanceBox1</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstanceBox2">
+                  </a> <!-- calculate_beratSubstanceBox2 -->
+                  <span class="method-name">calculate_beratSubstanceBox2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstanceBox3">
+                  </a> <!-- calculate_beratSubstanceBox3 -->
+                  <span class="method-name">calculate_beratSubstanceBox3</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstanceBox4">
+                  </a> <!-- calculate_beratSubstanceBox4 -->
+                  <span class="method-name">calculate_beratSubstanceBox4</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstanceBox5">
+                  </a> <!-- calculate_beratSubstanceBox5 -->
+                  <span class="method-name">calculate_beratSubstanceBox5</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstancePartisi1">
+                  </a> <!-- calculate_beratSubstancePartisi1 -->
+                  <span class="method-name">calculate_beratSubstancePartisi1</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstancePartisi2">
+                  </a> <!-- calculate_beratSubstancePartisi2 -->
+                  <span class="method-name">calculate_beratSubstancePartisi2</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstancePartisi3">
+                  </a> <!-- calculate_beratSubstancePartisi3 -->
+                  <span class="method-name">calculate_beratSubstancePartisi3</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstancePartisi4">
+                  </a> <!-- calculate_beratSubstancePartisi4 -->
+                  <span class="method-name">calculate_beratSubstancePartisi4</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratSubstancePartisi5">
+                  </a> <!-- calculate_beratSubstancePartisi5 -->
+                  <span class="method-name">calculate_beratSubstancePartisi5</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_beratTrim_partisi">
+                  </a> <!-- calculate_beratTrim_partisi -->
+                  <span class="method-name">calculate_beratTrim_partisi</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_corr_box">
+                  </a> <!-- calculate_corr_box -->
+                  <span class="method-name">calculate_corr_box</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_corr_partisi">
+                  </a> <!-- calculate_corr_partisi -->
+                  <span class="method-name">calculate_corr_partisi</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_outKertas_box">
+                  </a> <!-- calculate_outKertas_box -->
+                  <span class="method-name">calculate_outKertas_box</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="calculate_outKertas_partisi">
+                  </a> <!-- calculate_outKertas_partisi -->
+                  <span class="method-name">calculate_outKertas_partisi</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="firstTes">
+                  </a> <!-- firstTes -->
+                  <span class="method-name">firstTes</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite1-class-passed -->
+          <div class="suite-Suite1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="firstTest">
+                  </a> <!-- firstTest -->
+                  <span class="method-name">firstTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="secondTest">
+                  </a> <!-- secondTest -->
+                  <span class="method-name">secondTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="thirdTest">
+                  </a> <!-- thirdTest -->
+                  <span class="method-name">thirdTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite1-class-passed -->
+          <div class="suite-Suite1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">release_sales_order.ReleaseSalesOrderBoxPartisi</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -133,106 +571,439 @@
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
-        </div> <!-- panel Default_suite -->
-        <div panel-name="test-xml-Default_suite" class="panel">
+          </div> <!-- suite-Suite1-class-passed -->
+        </div> <!-- panel Suite1 -->
+        <div panel-name="test-xml-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Shelly\AppData\Local\Temp\testng-eclipse-953592821\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Shelly\git\SeleniumJavaFramework\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
+&lt;suite thread-count=&quot;1&quot; name=&quot;Suite1&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Test1&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;sales_order.VerifyValueOfPPH23inAddSalesOrderModule&quot;/&gt;
+      &lt;class name=&quot;sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Default test --&gt;
-&lt;/suite&gt; &lt;!-- Default suite --&gt;
+  &lt;/test&gt; &lt;!-- Test1 --&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Test2&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;release_sales_order.ReleaseSalesOrderBoxPartisi&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test2 --&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Test3&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test3 --&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Test4&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;perpindahan_wip.PerpindahanWIPBoxPartisi&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test4 --&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Test5&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;quality_check.QCBeratTimbangBoxPartisi&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test5 --&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Test6&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;input_hasil_produksi.InputHasilProduksiBoxPartisi&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test6 --&gt;
+&lt;/suite&gt; &lt;!-- Suite1 --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="testlist-Default_suite" class="panel">
+        <div panel-name="testlist-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Tests for Default suite</span>
+            <span class="header-content">Tests for Suite1</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (1 class)</span>
+                <span class="test-name">Test1 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test2 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test3 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test4 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test5 (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Test6 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="group-Default_suite" class="panel">
+        <div panel-name="group-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Groups for Default suite</span>
+            <span class="header-content">Groups for Suite1</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="times-Default_suite" class="panel">
+        <div panel-name="times-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Times for Default suite</span>
+            <span class="header-content">Times for Suite1</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="times-div">
               <script type="text/javascript">
-suiteTableInitFunctions.push('tableData_Default_suite');
-function tableData_Default_suite() {
+suiteTableInitFunctions.push('tableData_Suite1');
+function tableData_Suite1() {
 var data = new google.visualization.DataTable();
 data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(30);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'firstTest')
-data.setCell(0, 2, 'sales_order.VerifyValueOfPPH23inAddSalesOrderModule')
-data.setCell(0, 3, 17972);
-window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+data.setCell(0, 2, 'release_sales_order.ReleaseSalesOrderBoxPartisi')
+data.setCell(0, 3, 70333);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'firstTes')
+data.setCell(1, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(1, 3, 30103);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'firstTest')
+data.setCell(2, 2, 'perpindahan_wip.PerpindahanWIPBoxPartisi')
+data.setCell(2, 3, 19699);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'firstTest')
+data.setCell(3, 2, 'input_hasil_produksi.InputHasilProduksiBoxPartisi')
+data.setCell(3, 3, 14440);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'firstTest')
+data.setCell(4, 2, 'quality_check.QCBeratTimbangBoxPartisi')
+data.setCell(4, 3, 12283);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'secondTest')
+data.setCell(5, 2, 'input_hasil_produksi.InputHasilProduksiBoxPartisi')
+data.setCell(5, 3, 8964);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'secondTest')
+data.setCell(6, 2, 'quality_check.QCBeratTimbangBoxPartisi')
+data.setCell(6, 3, 5930);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'thirdTest')
+data.setCell(7, 2, 'sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2')
+data.setCell(7, 3, 380);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'firstTest')
+data.setCell(8, 2, 'sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2')
+data.setCell(8, 3, 349);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'secondTest')
+data.setCell(9, 2, 'sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2')
+data.setCell(9, 3, 68);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'calculate_beratSubstanceBox4')
+data.setCell(10, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(10, 3, 10);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'calculate_beratSubstancePartisi1')
+data.setCell(11, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(11, 3, 10);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'calculate_beratBox_box')
+data.setCell(12, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(12, 3, 10);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'calculate_beratSubstanceBox2')
+data.setCell(13, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(13, 3, 9);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'calculate_beratTrim_partisi')
+data.setCell(14, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(14, 3, 8);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'calculate_beratSubstanceBox1')
+data.setCell(15, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(15, 3, 6);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'calculate_outKertas_box')
+data.setCell(16, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(16, 3, 5);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'calculate_beratSubstancePartisi3')
+data.setCell(17, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(17, 3, 5);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'calculate_beratOrder_box')
+data.setCell(18, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(18, 3, 5);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'calculate_beratTrim_box')
+data.setCell(19, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(19, 3, 5);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'calculate_beratBox_partisi')
+data.setCell(20, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(20, 3, 4);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'calculate_corr_partisi')
+data.setCell(21, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(21, 3, 4);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'calculate_corr_box')
+data.setCell(22, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(22, 3, 4);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'calculate_outKertas_partisi')
+data.setCell(23, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(23, 3, 2);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'calculate_beratSubstancePartisi4')
+data.setCell(24, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(24, 3, 2);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'calculate_beratSubstancePartisi5')
+data.setCell(25, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(25, 3, 2);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'calculate_beratSubstancePartisi2')
+data.setCell(26, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(26, 3, 1);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'calculate_beratSubstanceBox3')
+data.setCell(27, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(27, 3, 1);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'calculate_beratOrder_partisi')
+data.setCell(28, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(28, 3, 1);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'calculate_beratSubstanceBox5')
+data.setCell(29, 2, 'work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2')
+data.setCell(29, 3, 0);
+window.suiteTableData['Suite1']= { tableData: data, tableDiv: 'times-div-Suite1'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 17 seconds</span>
-              <div id="times-div-Default_suite">
-              </div> <!-- times-div-Default_suite -->
+              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <div id="times-div-Suite1">
+              </div> <!-- times-div-Suite1 -->
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="reporter-Default_suite" class="panel">
+        <div panel-name="reporter-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Reporter output for Default suite</span>
+            <span class="header-content">Reporter output for Suite1</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="ignored-methods-Default_suite" class="panel">
+        <div panel-name="ignored-methods-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="chronological-Default_suite" class="panel">
+        <div panel-name="chronological-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">sales_order.VerifyValueOfPPH23inAddSalesOrderModule</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setUpTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">firstTest</span>
-                <span class="method-start">6901 ms</span>
+                <span class="method-start">28451 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">secondTest</span>
+                <span class="method-start">29196 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">thirdTest</span>
+                <span class="method-start">29314 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">tearDownTest</span>
-                <span class="method-start">25213 ms</span>
+                <span class="method-start">29699 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">release_sales_order.ReleaseSalesOrderBoxPartisi</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUpTest</span>
+                <span class="method-start">31068 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">firstTest</span>
+                <span class="method-start">35747 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDownTest</span>
+                <span class="method-start">106088 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUpTest</span>
+                <span class="method-start">106454 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">firstTes</span>
+                <span class="method-start">146138 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_outKertas_box</span>
+                <span class="method-start">176252 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_corr_box</span>
+                <span class="method-start">176260 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">calculate_beratBox_box</span>
+                <span class="method-start">176270 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratOrder_box</span>
+                <span class="method-start">176295 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">calculate_beratTrim_box</span>
+                <span class="method-start">176309 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstanceBox1</span>
+                <span class="method-start">176326 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstanceBox2</span>
+                <span class="method-start">176338 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstanceBox3</span>
+                <span class="method-start">176355 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstanceBox4</span>
+                <span class="method-start">176362 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstanceBox5</span>
+                <span class="method-start">176375 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_outKertas_partisi</span>
+                <span class="method-start">176386 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_corr_partisi</span>
+                <span class="method-start">176667 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratBox_partisi</span>
+                <span class="method-start">176678 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratOrder_partisi</span>
+                <span class="method-start">176689 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratTrim_partisi</span>
+                <span class="method-start">176698 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstancePartisi1</span>
+                <span class="method-start">176706 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstancePartisi2</span>
+                <span class="method-start">176723 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstancePartisi3</span>
+                <span class="method-start">176730 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstancePartisi4</span>
+                <span class="method-start">176741 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">calculate_beratSubstancePartisi5</span>
+                <span class="method-start">176752 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDownTest</span>
+                <span class="method-start">176759 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">perpindahan_wip.PerpindahanWIPBoxPartisi</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUpTest</span>
+                <span class="method-start">177118 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">firstTest</span>
+                <span class="method-start">181362 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDownTest</span>
+                <span class="method-start">201087 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">quality_check.QCBeratTimbangBoxPartisi</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUpTest</span>
+                <span class="method-start">201501 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">firstTest</span>
+                <span class="method-start">205756 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">secondTest</span>
+                <span class="method-start">218046 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDownTest</span>
+                <span class="method-start">223985 ms</span>
+              </div> <!-- configuration-test after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">input_hasil_produksi.InputHasilProduksiBoxPartisi</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setUpTest</span>
+                <span class="method-start">224247 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">firstTest</span>
+                <span class="method-start">228311 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">secondTest</span>
+                <span class="method-start">242757 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">tearDownTest</span>
+                <span class="method-start">251727 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

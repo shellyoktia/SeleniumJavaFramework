@@ -3,13 +3,9 @@ package release_sales_order;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,20 +13,27 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
 import pages.VariableGlobalMain;
+import pages.Home;
+import pages.ReleaseSalesOrderPage;
 
 public class ReleaseSalesOrderBoxPartisi {
 
 	private static WebDriver driver = null;
-	//String noSalesOrder = VariableGlobalMain.noSalesOrderBoxPartisi;
-	String noSalesOrder = "11nov2022";
+	String noSalesOrder;
 	String whitelist = "Tidak bisa release so line, karena ada pembayaran telat";
 	String approval = "Request telah berhasil dibuat. Silahkan tunggu approval";
 	String expense = "expense per kg < benchmark, pls ask selling price appro";
+	Home objHome;
+	ReleaseSalesOrderPage objReleaseSalesOrderPage;
+	
 
 	@BeforeTest
 	public void setUpTest() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		objHome = new Home(driver);
+		objReleaseSalesOrderPage = new ReleaseSalesOrderPage(driver);
+		noSalesOrder = VariableGlobalMain.noSalesOrderBoxPartisi;
 		
 		//ke url
 		LoginPage.url_localhost(driver);
@@ -42,51 +45,54 @@ public class ReleaseSalesOrderBoxPartisi {
 		LoginPage.username_textbox(driver);
 		LoginPage.password_textbox(driver);
 		LoginPage.button_login(driver).click();
+		
 	}
 	
 	@Test
 	public void firstTest() throws InterruptedException {
 	    //ke halaman release sales order
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'SPK Rework Request Approval')]")));
-		driver.findElement(By.id("rootmenu-sales")).click();
-		driver.findElement(By.linkText("Release Sales Order")).click();
+		objHome.waitCardToBeClickable();
+		objHome.click_rootmenuSales();
+		objReleaseSalesOrderPage.click_menuReleaseSalesOrder();
 		
 		//filter by no sales order
-		driver.findElement(By.className("filter-block__title")).click();
-		driver.findElement(By.name("noSalesorder")).sendKeys(noSalesOrder);
-		driver.findElement(By.name("submit")).click();
+		objReleaseSalesOrderPage.click_filter();
+		objReleaseSalesOrderPage.filter_byNoSalesOrder(noSalesOrder);
+		objReleaseSalesOrderPage.click_submitFilter();
 	
 		//release sales order
-		driver.findElement(By.linkText("Release")).click();
-		driver.findElement(By.name("save-btn")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.name("save-btn")));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		driver.findElement(By.name("save-btn")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".ant-col > .ant-btn-primary")));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		driver.findElement(By.cssSelector(".ant-col > .ant-btn-primary")).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+		objReleaseSalesOrderPage.click_releaseSalesOrder();
+		Thread.sleep(2000);
+		objReleaseSalesOrderPage.click_YaReleaseSalesOrder();
+		objReleaseSalesOrderPage.click_assign();
+		Thread.sleep(2000);
+		objReleaseSalesOrderPage.click_YaAssign();
 		
 		//ambil message
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("ant-notification-notice-message")));
-		String alert = driver.findElement(By.cssSelector("div.ant-notification.ant-notification-topRight span:nth-child(1) div.ant-notification-notice.ant-notification-notice-closable div.ant-notification-notice-content div.ant-notification-notice-with-icon > div.ant-notification-notice-description")).getText();
+		String alert = objReleaseSalesOrderPage.getMessage();
 		System.out.println("alert" + alert);
 		
 		//approval (!!!kurang if else sesuai alert!!!)
 		Thread.sleep(5000);
-		driver.findElement(By.id("rootmenu-sales")).click();
-		Thread.sleep(5000);
-		driver.findElement(By.linkText("Whitelist Release SPK (bypass payment delay) - Approval")).click();
-		driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span[1]/a[1]")).click();
-		driver.findElement(By.name("save-btn")).click();
+		objHome.click_rootmenuSales();
 		
-//		driver.findElement(By.linkText("Release Sales Order - Approval")).click();
-//		driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span[1]/a[1]")).click();
-//		driver.findElement(By.name("save-btn")).click();
-		Thread.sleep(5000);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("ant-notification-notice-description")));
+		//whitelist
+		//Thread.sleep(5000);
+		//driver.findElement(By.linkText("Whitelist Release SPK (bypass payment delay) - Approval")).click();
+		//driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span[1]/a[1]")).click();
+		//driver.findElement(By.name("save-btn")).click();
+		
+		//approval
+		Thread.sleep(3000);
+		objReleaseSalesOrderPage.click_menuApprovaReleaseSalesOrder();
+		Thread.sleep(3000);
+		objReleaseSalesOrderPage.click_approveReleaseSalesOrder();
+		Thread.sleep(3000);
+		objReleaseSalesOrderPage.click_YaApproveReleaseSalesOrder();
+		objReleaseSalesOrderPage.wait_approve();
+		
+		//price
 		
 	}
 	

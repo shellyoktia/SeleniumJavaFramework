@@ -16,21 +16,33 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
 import pages.VariableGlobalMain;
+import pages.Home;
+import pages.InputHasilProduksiPage;
+import pages.ItemMastercard;
 
 public class InputHasilProduksiBoxPartisi {
 
 	private static WebDriver driver = null;
-	//String noSPKset = VariableGlobalMain.noSpkSetBoxPartisi;
-	String noSPKset = "22020060";
-	//String corrbaik = VariableGlobalMain.qtySalesOrderBoxPartisi;
-	String corrbaik = "100";
+	String noSPKSet;
+	//String noSPKSet = "23001625";
+	String corr_baik;
+	//String corr_baik = "150";
 	String scrap = "2";
+	String out = "1";
+	String flexo = "1";
+	Home objHome;
+	ItemMastercard objItemMastercard;
+	InputHasilProduksiPage objInputHasilProduksiPage;
 			
 	@BeforeTest
 	public void setUpTest() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		
+		objHome = new Home(driver);
+		objInputHasilProduksiPage = new InputHasilProduksiPage(driver);
+		objItemMastercard = new ItemMastercard(driver);
+		noSPKSet = VariableGlobalMain.noSpkSetBoxPartisi;
+		corr_baik = VariableGlobalMain.qtySalesOrderBoxPartisi;
 		
 		//ke url
 		LoginPage.url_localhost(driver);
@@ -50,41 +62,62 @@ public class InputHasilProduksiBoxPartisi {
 	    //ke halaman input hasil produksi
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'SPK Rework Request Approval')]")));
-		driver.findElement(By.id("rootmenu-production")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.partialLinkText("Input Hasil Produksi")).click();
-		driver.findElement(By.name("add")).click();
-		WebElement inputSPKset = driver.findElement(By.cssSelector(".ant-select-enabled .ant-select-selection__rendered"));
-		action.moveToElement(inputSPKset).click().sendKeys(noSPKset).build().perform();
-		driver.findElement(By.xpath("//li[contains(text(),'"+ noSPKset +"')]")).click();
-		driver.findElement(By.cssSelector(".ant-row:nth-child(2) .ant-select-selection__placeholder:nth-child(1)")).click();
-		driver.findElement(By.xpath("//li[contains(text(),'BOX - BOX')]")).click();
-		String corrout = driver.findElement(By.cssSelector(".ihp-corrout .ant-input-number-input-wrap .ant-input-number-input")).getAttribute("value");
-		System.out.println(corrout);
-		driver.findElement(By.cssSelector(".ihp-flexoout .ant-input-number-input-wrap .ant-input-number-input")).sendKeys(corrout);
-		driver.findElement(By.cssSelector(".ihp-corrgoodamount .ant-input-number-input-wrap .ant-input-number-input")).sendKeys(corrbaik);
-		driver.findElement(By.cssSelector(".ihp-corrscrap .ant-input-number-input-wrap .ant-input-number-input")).sendKeys(scrap);
-		driver.findElement(By.name("save-btn")).click();
-		Thread.sleep(5000);
+		objHome.waitCardToBeClickable();
+		objHome.click_rootmenuProduction();
+		objInputHasilProduksiPage.click_menuInputHasilProduksi();
+		
+		//add input hasil produksi
+		objInputHasilProduksiPage.click_addInputHasilProduksi();
+		
+		//input no spk
+		objInputHasilProduksiPage.input_noSPKSet(noSPKSet);
+		objInputHasilProduksiPage.click_noSPKItem();
+		objItemMastercard.clickItemMastercard_PTJayamasMedica_box();
+		
+		//tanggal
+		objInputHasilProduksiPage.click_calendar();
+		objInputHasilProduksiPage.click_tanggalHariIni();
+		
+		//input corr baik
+		objInputHasilProduksiPage.input_corrBaik(corr_baik);
+		
+		//input scrap
+		objInputHasilProduksiPage.input_scrap(scrap);
+		
+		//iinput flexo out
+		objInputHasilProduksiPage.input_flexo(flexo);
+
+		//save
+		objInputHasilProduksiPage.click_save();
+		objInputHasilProduksiPage.click_yaSave();
 		
 	}
 	@Test (priority = 2)
 	public void secondTest() throws InterruptedException {
-		Actions action = new Actions(driver);
-		driver.findElement(By.name("add")).click();
-		WebElement inputSPKset = driver.findElement(By.cssSelector(".ant-select-enabled .ant-select-selection__rendered"));
-		action.moveToElement(inputSPKset).click().sendKeys(noSPKset).build().perform();
-		driver.findElement(By.xpath("//li[contains(text(),'"+ noSPKset +"')]")).click();
-		driver.findElement(By.cssSelector(".ant-row:nth-child(2) .ant-select-selection__placeholder:nth-child(1)")).click();
-		driver.findElement(By.xpath("//li[contains(text(),'PARTISI - BOX')]")).click();
-		String corrout = driver.findElement(By.cssSelector(".ihp-corrout .ant-input-number-input-wrap .ant-input-number-input")).getAttribute("value");
-		System.out.println(corrout);
-		driver.findElement(By.cssSelector(".ihp-flexoout .ant-input-number-input-wrap .ant-input-number-input")).sendKeys(corrout);
-		driver.findElement(By.cssSelector(".ihp-corrgoodamount .ant-input-number-input-wrap .ant-input-number-input")).sendKeys(corrbaik);
-		driver.findElement(By.cssSelector(".ihp-corrscrap .ant-input-number-input-wrap .ant-input-number-input")).sendKeys(scrap);
-		driver.findElement(By.name("save-btn")).click();
-		Thread.sleep(5000);
+		//add input hasil produksi
+		objInputHasilProduksiPage.click_addInputHasilProduksi();
+				
+		//input no spk
+		objInputHasilProduksiPage.input_noSPKSet(noSPKSet);
+		objInputHasilProduksiPage.click_noSPKItem();
+		objItemMastercard.clickItemMastercard_PTJayamasMedica_partisi();
+		
+		//tanggal
+		objInputHasilProduksiPage.click_calendar();
+		objInputHasilProduksiPage.click_tanggalHariIni();
+				
+		//input corr baik
+		objInputHasilProduksiPage.input_corrBaik(corr_baik);
+				
+		//input scrap
+		objInputHasilProduksiPage.input_scrap(scrap);
+				
+		//iinput flexo out
+		objInputHasilProduksiPage.input_flexo(flexo);
+
+		//save
+		objInputHasilProduksiPage.click_save();
+		objInputHasilProduksiPage.click_yaSave();
 		
 	}
 	

@@ -4,37 +4,54 @@ import static org.testng.Assert.assertEquals;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
-import pages.ObjectRepository_SalesOrder;
+import pages.SalesOrderPage;
+import pages.SalesPersonName;
+import pages.CustomerName;
+import pages.Mastercard;
+import pages.BillingAddress;
+import pages.ShippingAddress;
+import pages.Home;
 
 public class CreateSalesOrderwith11prctPPN_BoxLayer {
 
 	private static WebDriver driver = null;
+	String noSalesOrder = "tes box layer";
 	String quantity = "600";
     String price_box = "10500";
     String price_layer1 = "11500";
     String price_layer2 = "9500";
     int expectedSubtotal = 0;
     int expectedPPN = 0;
+    String salesPerson ="sujadi";
+    String customer = "pinrang";
+    SalesOrderPage objSalesOrder;
+    SalesPersonName objSalesPerson;
+    CustomerName objCustomer;
+    Mastercard objMastercard;
+    BillingAddress objBillingAddress;
+    ShippingAddress objShippingAddress;
+    Home objHome;
 
 	@BeforeTest
-	public void setUpTest() {
+	public void setUpTest() throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
+		objSalesOrder = new SalesOrderPage(driver);
+		objSalesPerson = new SalesPersonName(driver);
+		objCustomer = new CustomerName(driver);
+		objMastercard = new Mastercard(driver);
+		objBillingAddress = new BillingAddress(driver);
+		objShippingAddress = new ShippingAddress(driver);
+		objHome = new Home(driver);
 		
-		Actions action = new Actions(driver);
 		//ke url
 		LoginPage.url_localhost(driver);
 		
@@ -48,95 +65,86 @@ public class CreateSalesOrderwith11prctPPN_BoxLayer {
 	
 	    //ke halaman sales order
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'SPK Rework Request Approval')]")));
-		driver.findElement(By.id("rootmenu-sales")).click();
-		driver.findElement(By.linkText("Sales Order")).click();
+		objHome.waitCardToBeClickable();
+		objHome.click_rootmenuSales();
+		objSalesOrder.click_menuSalesOrder();
 
 	    //add new sales order
-	    driver.findElement(By.name("add")).click();
+		objSalesOrder.click_addSalesOrder();
 	    
 	    //input no sales order
-	    driver.findElement(By.name("noSalesorder")).sendKeys("tes box layer");
+		objSalesOrder.input_noSalesOrder(noSalesOrder);
 	    
 	    //input sales person
-	    WebElement salesPerson = driver.findElement(By.xpath("//div[contains(@class, 'so-salesperson')]")); 
-	    action.moveToElement(salesPerson).click().sendKeys("sujadi").build().perform();
-	    driver.findElement(By.xpath("//li[contains(text(),'303 - Sujadi')]")).click(); 
-	    
+		objSalesOrder.input_salesPerson(salesPerson);	    
+	  	objSalesPerson.clickSalesPerson_Sujadi();
 	    
 	    //input customer
-	    WebElement customer = driver.findElement(By.cssSelector(".so-customer .ant-select-selection__placeholder"));
-	    action.moveToElement(customer).click().sendKeys("pinrang").build().perform();
-	    driver.findElement(By.xpath("//li[contains(text(),'PI685 - PT PINRANG PANTAI INDAH')]")).click(); 
+	  	objSalesOrder.input_customer(customer);
+	    objCustomer.clickCustomer_PTPinrangPantaiIndah();
 	      
 	    //input billing address
-	    driver.findElement(By.cssSelector(".so-bilingaddress .ant-select-selection__placeholder")).click();
-	    driver.findElement(By.xpath("//li[contains(text(),'JL. GURU GANTANGAN NO.59')]")).click();
+	    objSalesOrder.click_billingAddress();
+	    objBillingAddress.clickBillingAddress_PTPinrangPantaiIndah();
 	    
 	    //input shipping address
-	    driver.findElement(By.cssSelector(".so-shippingaddress .ant-select-selection__placeholder")).click();
-	    driver.findElement(By.xpath("//li[contains(text(),'DIAMBIL SENDIRI')]")).click();
+	    objSalesOrder.click_shippingAddress();
+	    objShippingAddress.clickShippingAddress_DiambilSendiri();
 	    
 	    //add sales order line
-	    driver.findElement(By.cssSelector(".fa-plus-circle")).click();
+	    objSalesOrder.click_addSalesOrderLine();
 	    
 	    //pilih tipe
-	    driver.findElement(By.cssSelector(".sol-type .ant-select-selection__placeholder")).click();
-	    driver.findElement(By.xpath("//li[contains(text(),'Box')]")).click();
+	    objSalesOrder.click_tipeSalesOrderLine();
+	    objSalesOrder.clickTipeSalesOrderLine_Box();
 	    
 	    //pilih mc
-	    driver.findElement(By.cssSelector(".sol-mastercard .ant-select-selection__placeholder")).click();
-	    driver.findElement(By.xpath("//li[contains(text(),'10849 - 008420 - DUS CARMEL MOONCAKE - K150/0/0/M1')]")).click();
+	    objSalesOrder.click_mastercard();
+	    objMastercard.clickMastercard_PTPinrangPantaiIndah_008420();
 	    
 	    //quantity
-	    WebElement qty = driver.findElement(By.cssSelector(".sol-quantity .ant-input-number-input-wrap"));
-	    action.moveToElement(qty).click().sendKeys(quantity).build().perform();
+	    objSalesOrder.input_quantity(quantity);
 	    
 	    //unit
-	    driver.findElement(By.cssSelector(".sol-unitmeasurement .ant-select-selection__rendered")).click();
-	    driver.findElement(By.xpath("//li[contains(text(),'pcs')]")).click();
+	    objSalesOrder.click_unitSalesOrderLine();
+	    objSalesOrder.clickUnitSalesOrderLine_pcs();
 	    
 	    //harga
-	    //WebElement harga = driver.findElement(By.cssSelector(".sol-unitprice .ant-input-number-input"));
-	    //action.moveToElement(harga).click().sendKeys(price_box).build().perform();
-	    ObjectRepository_SalesOrder.harga(driver).click();
-	    ObjectRepository_SalesOrder.harga(driver).sendKeys(price_box);
+	    objSalesOrder.input_harga(price_box);
 	    
 	    //tanggal
-	    driver.findElement(By.cssSelector(".sol-deliverydate .ant-calendar-picker-input")).click();
-	    driver.findElement(By.cssSelector(".ant-calendar-today > .ant-calendar-date")).click();
+	    objSalesOrder.click_calendar();
+	    objSalesOrder.click_tanggalHariIni();
 	    
 	    //save sales order line
-	    driver.findElement(By.cssSelector(".ant-row-flex > .ant-btn")).click();
+	    objSalesOrder.click_saveSalesOrderLine();
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 	    
 	    //edit price so line layer 1
-	    driver.findElement(By.xpath("//tbody/tr[2]/td[1]/span[1]/a[1]")).click();
+	    objSalesOrder.edit_2ndSalesOrderLine();
+	    Thread.sleep(1000);
 	    
 	    //input harga layer 1
-	    ObjectRepository_SalesOrder.harga(driver).click();
-	    ObjectRepository_SalesOrder.harga(driver).sendKeys(price_layer1);
+	    objSalesOrder.input_harga(price_layer1);
 	    
 	    //save sales order line layer 1
-	    driver.findElement(By.cssSelector(".ant-row-flex > .ant-btn")).click();
-	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+	    objSalesOrder.click_saveSalesOrderLine();
 	    
 	    //edit price so line layer 2
-	    driver.findElement(By.xpath("//tbody/tr[3]/td[1]/span[1]/a[1]")).click();
+	    objSalesOrder.edit_3rdSalesOrderLine();
+	    Thread.sleep(1000);
 	    
 	    //input harga layer 2
-	    ObjectRepository_SalesOrder.harga(driver).click();
-	    ObjectRepository_SalesOrder.harga(driver).sendKeys(price_layer2);
+	    objSalesOrder.input_harga(price_layer2);
 	    
 	    //save sales order line layer 2
-	    driver.findElement(By.cssSelector(".ant-row-flex > .ant-btn")).click();
+	    objSalesOrder.click_saveSalesOrderLine();
 	}
 	
 	@Test (priority = 1)
 	public void firstTest() {
 	    //ambil dan verify nilai subtotal
-	    String actual_subtotal = driver.findElement(By.cssSelector(".so-subtotal .ant-input-number-input")).getAttribute("value");
+	    String actual_subtotal = objSalesOrder.getSubtotalValue();
 	    System.out.println("actual subtotal : " + actual_subtotal);
 	    
 	    int qty_order = Integer.parseInt(quantity);
@@ -155,7 +163,7 @@ public class CreateSalesOrderwith11prctPPN_BoxLayer {
 	public void secondTest() {
 	    
 	    //ambil dan verify nilai ppn
-	    String actual_ppn = driver.findElement(By.cssSelector(".so-ppn .ant-input-number-input")).getAttribute("value");
+	    String actual_ppn = objSalesOrder.getPPNValue();
 	    System.out.println("actual ppn : " + actual_ppn);
 	    
 	    expectedPPN = (expectedSubtotal * 11) / 100;
@@ -169,7 +177,7 @@ public class CreateSalesOrderwith11prctPPN_BoxLayer {
 	public void thirdTest() {
 		
 		//ambil dan verify nilai jumlah total
-		String jumlahTotal = driver.findElement(By.cssSelector("div.container main.layout section.content:nth-child(3) div.canvas div.canvas--content.add-edit-view-data form.data-form div.ant-row-flex.ant-row-flex-start.ant-row-flex-top:nth-child(7) > div.ant-col.ant-col-7")).getText();
+		String jumlahTotal = objSalesOrder.getJumlahTotalValue();
 		String jumlah = jumlahTotal.replace(".", "");
 	    String actual_jumlahTotal = jumlah.substring(15);
 		System.out.println("actual jumlah total : " + actual_jumlahTotal);

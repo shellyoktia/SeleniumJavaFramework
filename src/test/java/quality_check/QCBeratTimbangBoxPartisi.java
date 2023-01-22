@@ -13,26 +13,38 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import pages.Home;
+import pages.ItemMastercard;
+import pages.QCBeratTimbang;
+import pages.VariableGlobalMain;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
+import pages.PerpindahanWIPPage;
 
 public class QCBeratTimbangBoxPartisi {
 
 	private static WebDriver driver = null;
-	//String noSPKset = VariableGlobalMain.noSpkSetBoxPartisi;
-	String noSPKset = "22020060";
+	String noSPKSet;
+	//String noSPKSet = "23001625";
 	String berat_corr_box = "10";
 	String berat_flexo_box = "10";	
 	String berat_corr_partisi = "10";
 	String berat_flexo_partisi = "10";
+	Home objHome;
+	ItemMastercard objItemMastercard;
+	QCBeratTimbang objQCBeratTimbang;
+	WebDriverWait wait;
+	
 	
 			
 	@BeforeTest
 	public void setUpTest() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		
+		objHome = new Home(driver);
+		objQCBeratTimbang = new QCBeratTimbang(driver);
+		objItemMastercard = new ItemMastercard(driver);
+		noSPKSet = VariableGlobalMain.noSpkSetBoxPartisi;
 		
 		//ke url
 		LoginPage.url_localhost(driver);
@@ -51,37 +63,28 @@ public class QCBeratTimbangBoxPartisi {
 		Actions action = new Actions(driver);
 	    //ke halaman qc berat timbang
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(),'SPK Rework Request Approval')]")));
-		driver.findElement(By.id("rootmenu-quality-check")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.partialLinkText("QC Berat Timbang Sample Hasil Produksi")).click();
-		driver.findElement(By.name("add")).click();
-		WebElement inputSPKset = driver.findElement(By.cssSelector(".ant-select-enabled .ant-select-selection__rendered"));
-		action.moveToElement(inputSPKset).click().sendKeys(noSPKset).build().perform();
-		driver.findElement(By.xpath("//li[contains(text(),'"+ noSPKset +"')]")).click();
-		driver.findElement(By.cssSelector(".ant-row:nth-child(2) .ant-select-selection__placeholder:nth-child(1)")).click();
-		driver.findElement(By.xpath("//li[contains(text(),'BOX - BOX')]")).click();
-		driver.findElement(By.cssSelector(".qc-corractualweight .ant-input-number-input")).sendKeys(berat_corr_box);
-		driver.findElement(By.cssSelector(".qc-actualweight .ant-input-number-input")).sendKeys(berat_flexo_box);
-		driver.findElement(By.name("save-btn")).click();
-		Thread.sleep(3000);
 		
+		objHome.waitCardToBeClickable();
+		objHome.click_rootmenuQualityCheck();
+		Thread.sleep(1000);
+		objQCBeratTimbang.click_menuQCBeratTimbang();
+		objQCBeratTimbang.click_addQCBeratTimbang();
+		objQCBeratTimbang.input_noSPKSet(noSPKSet);
+		objQCBeratTimbang.click_noSPKItem();
+		objItemMastercard.clickItemMastercard_PTJayamasMedica_box();
+		objQCBeratTimbang.input_beratFlexo(berat_flexo_box);
+		objQCBeratTimbang.input_beratTimbang(berat_corr_box);
+		objQCBeratTimbang.click_save();
 	}
 	@Test (priority = 2)
 	public void secondTest() throws InterruptedException {
-		Actions action = new Actions(driver);
-		driver.findElement(By.name("add")).click();
-		WebElement inputSPKset = driver.findElement(By.cssSelector(".ant-select-enabled .ant-select-selection__rendered"));
-		action.moveToElement(inputSPKset).click().sendKeys(noSPKset).build().perform();
-		driver.findElement(By.xpath("//li[contains(text(),'"+ noSPKset +"')]")).click();
-		driver.findElement(By.cssSelector(".ant-row:nth-child(2) .ant-select-selection__placeholder:nth-child(1)")).click();
-		driver.findElement(By.xpath("//li[contains(text(),'PARTISI - BOX')]")).click();
-		driver.findElement(By.cssSelector(".qc-corractualweight .ant-input-number-input")).sendKeys(berat_corr_partisi);
-		driver.findElement(By.cssSelector(".qc-actualweight .ant-input-number-input")).sendKeys(berat_flexo_partisi);
-		driver.findElement(By.name("save-btn")).click();
-		Thread.sleep(3000);
-		
+		objQCBeratTimbang.click_addQCBeratTimbang();
+		objQCBeratTimbang.input_noSPKSet(noSPKSet);
+		objQCBeratTimbang.click_noSPKItem();
+		objItemMastercard.clickItemMastercard_PTJayamasMedica_partisi();
+		objQCBeratTimbang.input_beratFlexo(berat_flexo_partisi);
+		objQCBeratTimbang.input_beratTimbang(berat_corr_partisi);
+		objQCBeratTimbang.click_save();
 	}
 	
 	@AfterTest
