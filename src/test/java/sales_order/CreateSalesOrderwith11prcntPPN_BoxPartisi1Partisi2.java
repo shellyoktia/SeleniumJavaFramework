@@ -27,7 +27,7 @@ import pages.Home;
 public class CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2 {
 
 	private static WebDriver driver = null;
-    String noSalesOrder = "2023 48";
+    String noSalesOrder = "2023 50";
 	String quantity = "150";
     String price_box = "9880";
     String price_partisi = "9800";
