@@ -24,6 +24,9 @@ import pages.LoginPage;
 public class percobaan {
 
 	private static WebDriver driver = null;
+	int ayam;
+	int haha;
+	int bebek;
 
 	@BeforeTest
 	public void setUpTest() throws InterruptedException {
@@ -44,30 +47,23 @@ public class percobaan {
 		
 		
 	}
-	@Test
+	@Test(priority = 1)
 	public void test() {
-		//String dada = "1.60";
-		//Float ayam = Float.parseFloat(dada);
-		//System.out.println(ayam);
+		ayam = 10;
+		bebek = 2;
+		haha = 3;
+		assertEquals(bebek, ayam);
 		
-//		BigDecimal bd = new BigDecimal(dada);
-//		bd = bd.setScale(2, RoundingMode.HALF_DOWN);
-//		float ayam = bd.floatValue(); 
-//		System.out.println(ayam); // Prints 42.41
+	}
+	@Test(priority = 2)
+	public void test2() {
+		System.out.println(ayam);
+		System.out.println(bebek);
+	}
+	@Test(priority = 3)
+	public void test3() {
 		
-		float dada = 0f;
-		BigDecimal bd = new BigDecimal(dada);
-		bd = bd.setScale(2, RoundingMode.HALF_DOWN);
-		Float dada1 = bd.floatValue();
-		System.out.println(dada1);
-		
-		String bebek = "0";
-		Float bebek1 = Float.parseFloat(bebek);
-		System.out.println(bebek1);
-		
-		assertEquals(bebek1, dada);
-		
-		
+		System.out.println(haha);
 	}
 	
 	

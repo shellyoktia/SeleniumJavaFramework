@@ -26,12 +26,15 @@ public class PerpindahanWIPPage {
 	By submit = By.xpath("(//button[contains(@name, 'save-btn')])[2]");
 	By yes_submit = By.xpath("//button[contains(@class, 'ant-btn ant-btn-primary') and contains(span, 'Yes')]");
 	private Actions actions;
+	private WebDriverWait wait;
 	
 	public PerpindahanWIPPage(WebDriver driver) {
 		this.driver = driver;
 		actions = new Actions(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}
 	public void click_menuPerpindahanWIP() {
+		wait.until(ExpectedConditions.elementToBeClickable(menu_perpindahanwip));
 		driver.findElement(menu_perpindahanwip).click();
 	}
 	public void click_addPerpindahanWIP() {
@@ -71,6 +74,7 @@ public class PerpindahanWIPPage {
 		driver.findElement(submit).click();
 	}
 	public void click_yesSubmit() {
+		wait.until(ExpectedConditions.elementToBeClickable(yes_submit));
 		driver.findElement(yes_submit).click();
 	}
 }

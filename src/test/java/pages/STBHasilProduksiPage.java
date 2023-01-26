@@ -3,6 +3,7 @@ package pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,18 +20,20 @@ public class STBHasilProduksiPage {
 	By quantity = By.cssSelector(".goodsreceipt-qtystb .ant-input-number-input");
 	By lotTujuan = By.cssSelector(".goodsreceipt-lotto .ant-select-selection-search-input");
 	By input_receiver = By.cssSelector(".goodsreceipt-receiver .ant-select-selection-search-input");
+	By input_penyerah = By.cssSelector(".goodsreceipt-acknowledger .ant-select-selection-search-input");
 	By save = By.name("save-btn");
 	By ya_save = By.xpath("//button[contains(@class, 'ant-btn ant-btn-primary goodsreceipt-confirmbutton')]");
+	By pilih_fg = By.cssSelector(".goodsreceipt-finishedgood .ant-select-selection-search");
 	private WebDriverWait wait;
 	private Actions actions;
 	
 	public STBHasilProduksiPage(WebDriver driver) {
 		this.driver = driver;
 		actions = new Actions(driver);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}
 	public void click_menuSTBHasilProduksi() throws InterruptedException {
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(menu_STBHasilProduksi));
 		driver.findElement(menu_STBHasilProduksi).click();
 	}
 	public void click_addSTBHasilProduksi() {
@@ -43,11 +46,22 @@ public class STBHasilProduksiPage {
 		driver.findElement(By.xpath("//div[contains(@class, 'ant-select-item-option-content') and contains(text(), '"+noSPKSet+"')]")).click();
 	}
 	public void click_next() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.findElement(next).click();
 	}
-	public void click_noSPKItem() {
+	public void click_noSPKItem() throws InterruptedException {
+		Thread.sleep(2000);
 		driver.findElement(input_noSPKItem).click();
+	}
+	public void click_pilihFinishedgood(String fg){
+		WebElement inputFG = driver.findElement(pilih_fg);
+		actions.moveToElement(inputFG).click().sendKeys(fg).build().perform();
+		
+		//wait.until(ExpectedConditions.elementToBeClickable(pilih_fg));
+//		WebElement element = driver.findElement(pilih_fg);
+//		JavascriptExecutor executor = (JavascriptExecutor)driver;
+//		executor.executeScript("arguments[0].click();", element);
+		//driver.findElement(pilih_fg).click();
 	}
 	public void input_quantity(String qty_stb) {
 		driver.findElement(quantity).sendKeys(qty_stb);
@@ -59,6 +73,10 @@ public class STBHasilProduksiPage {
 	public void input_receiver(String receiver) {
 		WebElement receiverperson = driver.findElement(input_receiver); 
 		actions.moveToElement(receiverperson).click().sendKeys(receiver).build().perform();
+	}
+	public void input_penyerah(String penyerah) {
+		WebElement penyerahperson = driver.findElement(input_penyerah); 
+		actions.moveToElement(penyerahperson).click().sendKeys(penyerah).build().perform();
 	}
 	public void click_save() {
 		driver.findElement(save).click();

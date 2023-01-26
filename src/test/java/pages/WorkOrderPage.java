@@ -14,6 +14,7 @@ public class WorkOrderPage {
 	By filter = By.className("ant-collapse-header-text");
 	By submit_filter = By.name("submit");
 	By no_workOrder = By.name("noWorkorder");
+	By no_workOrderGrouped = By.name("noWorkorderGrouped");
 	By view_workorder = By.xpath("(//a[contains(text(), 'View')])[1]");
 	By back = By.xpath("//button[@name='back-button']");
 	By noSPKSet = By.name("noWorkorderGrouped");
@@ -27,28 +28,38 @@ public class WorkOrderPage {
 	By BeratSubstance3 = By.cssSelector(".wo_gsmweight3 input");
 	By BeratSubstance4 = By.cssSelector(".wo_gsmweight4 input");
 	By BeratSubstance5 = By.cssSelector(".wo_gsmweight5 input");
+	By woStatus_box = By.xpath("//tbody//td[5][contains(text(),'BOX')]//following::td[5]");
+	By woStatus_partisi = By.xpath("//tbody//td[5][contains(text(),'PARTISI')]//following::td[5]");
 	private WebDriverWait wait;
 	private Actions actions;
 	
 	public WorkOrderPage(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 		actions = new Actions(driver);
 	}
-	public void click_menuReleaseSalesOrder() {
+	public void click_menuWorkOrder() {
+		wait.until(ExpectedConditions.elementToBeClickable(menu_workorder));
 		driver.findElement(menu_workorder).click();
 	}
-	public void click_filter() {
-		//wait.until(ExpectedConditions.elementToBeClickable(releaseSalesOrder));
+	public void click_filter() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(view_workorder));
+		Thread.sleep(5000);
 		driver.findElement(filter).click();
 	}
-	public void filter_byNoWorkOrder(String out) {
-		driver.findElement(no_workOrder).sendKeys(out);
+	public void filter_byNoWorkOrder(String no_wo) {
+		driver.findElement(no_workOrder).sendKeys(no_wo);
 	}
-	public void click_submitFilter() {
+	public void filter_byNoWorkOrderGrouped(String no_wo_grouped) {
+		driver.findElement(no_workOrderGrouped).sendKeys(no_wo_grouped);
+	}
+	public void click_submitFilter() throws InterruptedException {
 		driver.findElement(submit_filter).click();
+		wait.until(ExpectedConditions.elementToBeClickable(view_workorder));
+		Thread.sleep(3000);
 	}
-	public void click_viewWorkorder() {
+	public void click_viewWorkorder() throws InterruptedException {
+		Thread.sleep(2000);
 		driver.findElement(view_workorder).click();
 	}
 	public void click_back() {
@@ -86,5 +97,11 @@ public class WorkOrderPage {
 	}
 	public String get_beratSubstance5() {
 		return driver.findElement(BeratSubstance5).getAttribute("value");
+	}
+	public String get_statusWOPartisi() {
+		return driver.findElement(woStatus_partisi).getText();
+	}
+	public String get_statusWOBox() {
+		return driver.findElement(woStatus_box).getText();
 	}
 }

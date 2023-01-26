@@ -28,10 +28,10 @@ public class InputHasilProduksiPage {
 	public InputHasilProduksiPage(WebDriver driver) {
 		this.driver = driver;
 		actions = new Actions(driver);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}
 	public void click_menuInputHasilProduksi() throws InterruptedException {
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(menu_inputHasilProduksi));
 		driver.findElement(menu_inputHasilProduksi).click();
 	}
 	public void click_addInputHasilProduksi() {

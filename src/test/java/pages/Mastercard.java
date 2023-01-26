@@ -1,7 +1,11 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Mastercard {
 	WebDriver driver = null;
@@ -10,23 +14,29 @@ public class Mastercard {
 	By mastercard_ptpinrangpantaiindah_008420 = By.xpath("//div[contains(text(),'10849 - 008420 - DUS CARMEL MOONCAKE - K150/0/0/M1')]");
 	By mastercard_ptgeloradjaja_000638R01 = By.xpath("//div[contains(text(),'897 - 000638R01 - BOX-KBOX WD12 NW 001628. CDI.18')]");
 	By mastercard_ptsukajadisawitmekar_006087_R1 =  By.xpath("//div[contains(text(),'9102 - 006087-R1 - CARTON M & M 1L (SNI-VITAMIN A)')]");
-	
+	private WebDriverWait wait;
 	public Mastercard(WebDriver driver) {
 		this.driver = driver;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}
 	public void clickMastercard_PTBeautyKasatama_003944() {
+		wait.until(ExpectedConditions.elementToBeClickable(mastercard_ptbeautykasatama_003944));;
 		driver.findElement(mastercard_ptbeautykasatama_003944).click(); 
 	}
 	public void clickMastercard_PTJayamasMedica_001076() {
+		wait.until(ExpectedConditions.elementToBeClickable(mastercard_ptjayamasmedica_001076));
 		driver.findElement(mastercard_ptjayamasmedica_001076).click(); 
 	}
 	public void clickMastercard_PTPinrangPantaiIndah_008420() {
+		wait.until(ExpectedConditions.elementToBeClickable(mastercard_ptpinrangpantaiindah_008420));
 		driver.findElement(mastercard_ptpinrangpantaiindah_008420).click(); 
 	}
 	public void clickMastercard_PTGeloraDjaja_000638R01() {
+		wait.until(ExpectedConditions.elementToBeClickable(mastercard_ptgeloradjaja_000638R01));
 		driver.findElement(mastercard_ptgeloradjaja_000638R01).click(); 
 	}
 	public void clickMastercard_PTSukajadiSawitMekar_006087_R1() {
+		wait.until(ExpectedConditions.elementToBeClickable(mastercard_ptsukajadisawitmekar_006087_R1));
 		driver.findElement(mastercard_ptsukajadisawitmekar_006087_R1).click(); 
 	}
 }

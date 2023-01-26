@@ -3,32 +3,47 @@
 <suite name="Suite1" thread-count="1" verbose="1">
   <test  name="Test1">
     <classes>
-      <class name="sales_order.CreateSalesOrderwith11prcntPPN_BoxPartisi1Partisi2"/>
+      <class name="sales_order.Sales_PPN_107"/>
     </classes>
   </test> <!-- Test1 -->
   <test  name="Test2">
     <classes>
-      <class name="release_sales_order.ReleaseSalesOrderBoxPartisi"/>
+      <class name="release_sales_order.Sales_PPN_32"/>
     </classes>
   </test> <!-- Test2 -->
   <test  name="Test3">
     <classes>
-      <class name="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2"/>
+      <class name="work_order_spk.Production_12"/>
     </classes>
   </test> <!-- Test3 -->
   <test  name="Test4">
     <classes>
-      <class name="perpindahan_wip.PerpindahanWIPBoxPartisi"/>
+      <class name="perpindahan_wip.Production_47"/>
     </classes>
   </test> <!-- Test4 -->
   <test  name="Test5">
     <classes>
-      <class name="quality_check.QCBeratTimbangBoxPartisi"/>
+      <class name="quality_check.QualityCheck_3"/>
     </classes>
   </test> <!-- Test5 -->
   <test  name="Test6">
     <classes>
-      <class name="input_hasil_produksi.InputHasilProduksiBoxPartisi"/>
+      <class name="input_hasil_produksi.Production_80"/>
     </classes>
   </test> <!-- Test6 -->
+   <test  name="Test7">
+    <classes>
+      <class name="stb_hasil_produksi.Warehouse_FG_9"/>
+    </classes>
+  </test> <!-- Test7 -->
+  <test  name="Test8">
+    <classes>
+      <class name="surat_jalan_delivery_order.Freight_13"/>
+    </classes>
+  </test> <!-- Test8 -->
+   <test  name="Test9">
+    <classes>
+      <class name="surat_jalan_delivery_order.Freight_63"/>
+    </classes>
+  </test> <!-- Test9 -->
 </suite> <!-- Suite1 -->

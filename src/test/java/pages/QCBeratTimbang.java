@@ -24,9 +24,10 @@ public class QCBeratTimbang {
 	public QCBeratTimbang(WebDriver driver) {
 		this.driver = driver;
 		actions = new Actions(driver);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}
 	public void click_menuQCBeratTimbang() {
+		wait.until(ExpectedConditions.elementToBeClickable(menu_qcBeratTimbang));
 		driver.findElement(menu_qcBeratTimbang).click();
 	}
 	public void click_addQCBeratTimbang() {

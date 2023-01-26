@@ -3,25 +3,50 @@
 <suite thread-count="1" name="Failed suite [Suite1]" guice-stage="DEVELOPMENT">
   <test thread-count="1" name="Test3(failed)">
     <classes>
-      <class name="work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2">
+      <class name="work_order_spk.Production_12">
         <methods>
-          <include name="calculate_beratTrim_box"/>
           <include name="calculate_beratBox_box"/>
           <include name="setUpTest"/>
           <include name="tearDownTest"/>
+          <include name="calculate_beratTrim_box"/>
         </methods>
-      </class> <!-- work_order_spk.VerifyCalculatedValuesinWorkOrder_boxpartisi1partisi2 -->
+      </class> <!-- work_order_spk.Production_12 -->
     </classes>
   </test> <!-- Test3(failed) -->
-  <test thread-count="1" name="Test4(failed)">
+  <test thread-count="1" name="Test8(failed)">
     <classes>
-      <class name="perpindahan_wip.PerpindahanWIPBoxPartisi">
+      <class name="surat_jalan_delivery_order.Freight_13">
         <methods>
+          <include name="verifyWorkOrderStatus_Partisi"/>
+          <include name="verifyWorkOrderStatus_Box"/>
           <include name="setUpTest"/>
-          <include name="firstTest"/>
           <include name="tearDownTest"/>
         </methods>
-      </class> <!-- perpindahan_wip.PerpindahanWIPBoxPartisi -->
+      </class> <!-- surat_jalan_delivery_order.Freight_13 -->
     </classes>
-  </test> <!-- Test4(failed) -->
+  </test> <!-- Test8(failed) -->
+  <test thread-count="1" name="Test9(failed)">
+    <classes>
+      <class name="surat_jalan_delivery_order.Freight_63">
+        <methods>
+          <include name="tearDownTest"/>
+          <include name="verifyStockBalance_partisi2"/>
+          <include name="approvalSJR"/>
+          <include name="verifySOLOutstanding_box"/>
+          <include name="verifyStockBalance_partisi1"/>
+          <include name="verifyWorkOrderStatus_Partisi"/>
+          <include name="verifySubtotal"/>
+          <include name="setUpTest"/>
+          <include name="verifyNotaReturPenjualan"/>
+          <include name="verifyStockBalance_box"/>
+          <include name="createSJRandVerifySubtotal"/>
+          <include name="verifySOLStatus_box"/>
+          <include name="verifySOLStatus_partisi"/>
+          <include name="verifySOLOutstanding_partisi"/>
+          <include name="verifyWorkOrderStatus_Box"/>
+          <include name="saveSJN"/>
+        </methods>
+      </class> <!-- surat_jalan_delivery_order.Freight_63 -->
+    </classes>
+  </test> <!-- Test9(failed) -->
 </suite> <!-- Failed suite [Suite1] -->
